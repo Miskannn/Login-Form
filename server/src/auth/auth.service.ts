@@ -7,12 +7,15 @@ import {
 } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { UserModel } from '../models/user.model';
+// import { JwtService } from '@nestjs/jwt';
+import * as jwt from 'jsonwebtoken';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
-  constructor(private jwtService: JwtService) {}
   private users: Map<string, string> = new Map([]);
+
+  constructor(private readonly jwtService: JwtService) {}
 
   async logout(dto: UserModel): Promise<any> {
     // return this.usersService.login();
@@ -41,13 +44,14 @@ export class AuthService {
   private async generateToken(user: {
     email: string;
     password: string;
-  }): Promise<{ accessToken: string }> {
+  }): Promise<{ accessToken: string; refreshToken: string }> {
     const payload = {
       email: user.email,
       password: user.password,
     };
     return {
       accessToken: this.jwtService.sign(payload),
+      refreshToken: this.jwtService.sign(payload),
     };
   }
 
