@@ -1,11 +1,21 @@
-import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { UserModel } from '../models/user.model';
+import { LocalAuthGuard } from './local-auth.guard';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @UseGuards(AuthGuard('local'))
   @HttpCode(200)
   @Post('login')
   login(@Body() dto: UserModel) {
@@ -23,10 +33,5 @@ export class AuthController {
   @Post('/logout')
   logout(@Body() dto: UserModel) {
     return this.authService.logout(dto);
-  }
-
-  @Get()
-  helloWorld() {
-    return 'hello';
   }
 }
