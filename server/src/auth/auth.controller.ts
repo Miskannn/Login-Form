@@ -4,12 +4,18 @@ import {
   Get,
   HttpCode,
   Post,
+  Req,
+  Request,
+  Res,
   UseGuards,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { UserModel } from '../models/user.model';
-import { LocalAuthGuard } from './local-auth.guard';
+import { LoginRequest } from '../dtos/login.dt';
+import { RegisterRequest } from '../dtos/registration.dt';
+import { AuthenticatedGuard } from './authenticated.guard';
+import { JwtAuthGuard } from './jwt-auth.guard';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
@@ -18,20 +24,19 @@ export class AuthController {
   @UseGuards(AuthGuard('local'))
   @HttpCode(200)
   @Post('login')
-  login(@Body() dto: UserModel) {
-    console.log('ok');
+  login(@Body() dto: LoginRequest) {
     return this.authService.login(dto);
   }
 
   @Post('registration')
-  registration(@Body() dto: UserModel) {
-    console.log('ok');
+  registration(@Body() dto: RegisterRequest) {
     return this.authService.registration(dto);
   }
 
+  @UseGuards(JwtAuthGuard)
   @HttpCode(200)
-  @Post('/logout')
-  logout(@Body() dto: UserModel) {
-    return this.authService.logout(dto);
+  @Post('logout')
+  logout(@Request() dto: UserModel) {
+    return 'Hello world';
   }
 }
