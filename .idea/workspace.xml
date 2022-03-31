@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/server/src/auth/authenticated.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/session.serializer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/jwt.strategy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/local-auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/local-auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/local.strategy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/local.strategy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
-    </list>
+    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +43,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\login\server\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="D:\login\server\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\login\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -116,7 +102,7 @@
       <workItem from="1648650757281" duration="1850000" />
       <workItem from="1648652816652" duration="15329000" />
       <workItem from="1648717517832" duration="4616000" />
-      <workItem from="1648730417742" duration="15152000" />
+      <workItem from="1648730417742" duration="15966000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>
