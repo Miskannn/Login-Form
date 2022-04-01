@@ -37,11 +37,10 @@ export class AuthController {
     return this.authService.logout(dto);
   }
 
-  @UseGuards(JwtAuthGuard)
   @Get('recovery')
   recovery(
     @Body() dto: Omit<UserModel, 'password'>,
-  ): Promise<string> | Promise<UnauthorizedException> {
+  ): Promise<string | UnauthorizedException> {
     return this.authService.recovery(dto);
   }
 }

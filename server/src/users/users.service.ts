@@ -1,6 +1,8 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import uuid from 'uuid';
+import * as uuid from 'uuid';
+import * as crypto from 'crypto';
+import { ValidationError } from 'class-validator';
 
 @Injectable()
 export class UsersService {
@@ -10,10 +12,11 @@ export class UsersService {
     return this.users.get(email);
   }
 
-  async updateUser(email: string) {
+  async updateUser(email: string): Promise<string | UnauthorizedException> {
     const existingUser = this.users.has(email);
+    console.log(this.users);
     if (existingUser) {
-      const randomPassword = uuid.v4();
+      const randomPassword = crypto.randomBytes(8).toString('hex');
       this.users.set(email, randomPassword);
       return randomPassword;
     }
@@ -22,10 +25,10 @@ export class UsersService {
 
   async createUser(email: string, password: string) {
     const existingUser = this.users.has(email);
-    if (existingUser) {
+    if (!existingUser) {
       return this.users.set(email, password);
     }
-    return null;
+    return new ValidationError();
   }
 
   async validateUser(email: string, password: string) {
