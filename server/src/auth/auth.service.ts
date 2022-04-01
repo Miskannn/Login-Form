@@ -3,9 +3,6 @@ import {
   HttpException,
   HttpStatus,
   Injectable,
-  Req,
-  Request,
-  Res,
   UnauthorizedException,
 } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
@@ -22,8 +19,10 @@ export class AuthService {
     private usersService: UsersService,
   ) {}
 
-  async logout(dto: UserModel): Promise<any> {
-    // return this.usersService.login();
+  async logout(dto: UserModel): Promise<string> {
+    const { email } = dto;
+    const logoutUser = this.usersService.findOne(email);
+    if (logoutUser) return email;
   }
 
   async registration(@Body() dto: RegisterRequest) {
@@ -50,7 +49,11 @@ export class AuthService {
     }
   }
 
-  async generateToken(email: string): Promise<{ accessToken: string }> {
+  async recovery(dto: Omit<UserModel, 'password'>) {
+    return this.usersService.updateUser(dto.email);
+  }
+
+  private async generateToken(email: string): Promise<{ accessToken: string }> {
     const payload = {
       email: email,
     };

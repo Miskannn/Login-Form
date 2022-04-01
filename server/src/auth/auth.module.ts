@@ -16,7 +16,9 @@ import { SessionSerializer } from './session.serializer';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         secret: configService.get<string>('JWT_SECRET_KEY'),
-        expiresIn: configService.get<string>('JWT_EXPIRATION'),
+        signOptions: {
+          expiresIn: configService.get<string>('JWT_EXPIRATION'),
+        },
       }),
       inject: [ConfigService],
     }),
@@ -24,7 +26,7 @@ import { SessionSerializer } from './session.serializer';
       session: true,
     }),
   ],
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, SessionSerializer],
   controllers: [AuthController],
 })
 export class AuthModule {}
