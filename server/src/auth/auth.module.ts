@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PassportModule } from '@nestjs/passport';
-import { LocalStrategy } from './local.strategy';
 import { UsersModule } from '../users/users.module';
-import { SessionSerializer } from './session.serializer';
 
 @Module({
   imports: [
@@ -26,7 +24,7 @@ import { SessionSerializer } from './session.serializer';
       session: true,
     }),
   ],
-  providers: [AuthService, LocalStrategy, SessionSerializer],
+  providers: [AuthService],
   controllers: [AuthController],
 })
 export class AuthModule {}

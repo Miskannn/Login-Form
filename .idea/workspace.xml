@@ -2,82 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="commit">
+      <change afterPath="$PROJECT_DIR$/server/src/auth/guards/at.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/guards/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/guards/rt.guard.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/strategies/at.strategy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/strategies/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/strategies/rt.strategy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/types/jwt-payload-with-rt.type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/types/jwt-payload.type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/types/tokens.type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/types/user-schema-store.type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/auth/types/user-schema.type.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/decorators/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/decorators/public.decorator.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/dtos/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/uuid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/uuid.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.bin/uuid.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/bin/uuid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/md5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/nil.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/parse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/regex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/rng.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/sha1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/stringify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/v1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/v3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/v35.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/v4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/v5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-browser/version.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/md5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/nil.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/parse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/regex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/rng.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/sha1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/stringify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/v1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/v3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/v35.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/v4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/v5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/esm-node/version.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/md5-browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/md5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/nil.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/parse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/regex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/rng-browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/rng.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/sha1-browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/sha1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/stringify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuid.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidNIL.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidParse.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidStringify.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidValidate.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidVersion.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidv1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidv3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidv4.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/umd/uuidv5.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/uuid-bin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/v1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/v3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/v35.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/v4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/v5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/validate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/dist/version.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/uuid/wrapper.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/authenticated.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/local-auth.guard.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/local.strategy.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/session.serializer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/dtos/login.dt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/dtos/registration.dt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/registration.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +51,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="273fY1MJAQwHJapBpl5RZZROVwE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -115,7 +66,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.14.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/profi-backend-node-js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src/auth" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -125,9 +76,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\login" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\login\server\src\auth" />
+      <recent name="D:\login\server\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\login\server\src\auth" />
+      <recent name="D:\login\server\src" />
+      <recent name="D:\login" />
       <recent name="D:\login\server\src\users" />
       <recent name="D:\login\client" />
     </key>
@@ -182,6 +138,8 @@
       <workItem from="1648717517832" duration="4616000" />
       <workItem from="1648730417742" duration="15966000" />
       <workItem from="1648803890329" duration="15616000" />
+      <workItem from="1649061476761" duration="586000" />
+      <workItem from="1649066667629" duration="10800000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>
