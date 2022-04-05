@@ -15,7 +15,10 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`h-8 border bg-success-77 text-white rounded-full px-5 transition-all group-invalid:border group-invalid:border-gray-400 group-invalid:text-gray-400 group-invalid:bg-transparent hover:text-white hover:bg-success-77 ${className}`}
+      className={`col-span-2 justify-self-end group-invalid:border
+          group-invalid:border-gray-400 group-invalid:text-gray-400
+          group-invalid:bg-transparent text-white bg-success-77
+          rounded-full px-6 py-2 w-fit ${className}`}
     >
       {children}
     </button>

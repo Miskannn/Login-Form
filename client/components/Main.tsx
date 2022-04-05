@@ -2,7 +2,7 @@ import React from "react";
 
 interface MainLayoutProps {
   children: React.ReactNode | React.ReactChild;
-  title: "Welcome" | "Oops" | "Wrong password";
+  title: string;
 }
 
 export const Main: React.FC<MainLayoutProps> = ({ children, title }) => {

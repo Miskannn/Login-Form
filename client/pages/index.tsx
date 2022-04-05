@@ -9,6 +9,8 @@ import {
   Header,
 } from "../components";
 import { useState } from "react";
+import { router } from "next/client";
+import { useRouter } from "next/router";
 
 const Main = () => {
   const [email, setEmail] = useState<string>("");
@@ -17,12 +19,23 @@ const Main = () => {
   const [title, setTitle] = useState<"Welcome" | "Wrong password" | "Oops">(
     "Welcome"
   );
+  const router = useRouter();
+
+  const titleHandler = () => {};
+
+  const formSubmit = async (e: Event) => {
+    e.preventDefault();
+    setEmail("");
+    setPassword("");
+    await router.push("/dashboard");
+  };
+
   return (
     <>
       <Layout>
         <Header />
         <MainContainer title={title}>
-          <FormLayout>
+          <FormLayout userAuth onSubmit={formSubmit}>
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
               onChange={setPassword}
