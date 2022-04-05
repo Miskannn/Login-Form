@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/server/src/auth/guards/at.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/guards/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/guards/rt.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/strategies/at.strategy.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/strategies/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/strategies/rt.strategy.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/types/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/types/jwt-payload-with-rt.type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/types/jwt-payload.type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/types/tokens.type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/types/user-schema-store.type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/auth/types/user-schema.type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/decorators/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/decorators/public.decorator.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/dtos/index.ts" afterDir="false" />
+    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Client part constructing">
+      <change afterPath="$PROJECT_DIR$/client/components/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/EmailInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/Footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/FormLayout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/Layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/Main.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/PasswordInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pages/_document.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/public/abler-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/server/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/authenticated.guard.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/local-auth.guard.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/local.strategy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/session.serializer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/login.dt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/registration.dt.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/registration.dto.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +56,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="273fY1MJAQwHJapBpl5RZZROVwE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -66,30 +70,43 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.14.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src/auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/assets" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\login\server\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="D:\login\client\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\login\server\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\login\server\src\auth" />
-      <recent name="D:\login\server\src" />
+      <recent name="D:\login\client\assets" />
+      <recent name="D:\login\client\certificates" />
+      <recent name="D:\login\server\secrets" />
+      <recent name="D:\login\server\dist" />
+      <recent name="D:\login\server\src\secrets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\login\server\src\auth" />
+      <recent name="D:\login\client\public" />
+      <recent name="D:\login\client\certificates" />
+      <recent name="D:\login\client\styles" />
+      <recent name="D:\login\server" />
       <recent name="D:\login\server\src" />
-      <recent name="D:\login" />
-      <recent name="D:\login\server\src\users" />
-      <recent name="D:\login\client" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start:dev">
+  <component name="RunManager" selected="npm.https">
     <configuration name="index.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server/index.ts" working-dir="$PROJECT_DIR$/server">
+      <method v="2" />
+    </configuration>
+    <configuration name="https" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="https" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="prebuild" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -114,6 +131,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.https" />
         <item itemvalue="npm.start:dev" />
         <item itemvalue="npm.prebuild" />
         <item itemvalue="Node.js.index.ts" />
@@ -139,7 +157,10 @@
       <workItem from="1648730417742" duration="15966000" />
       <workItem from="1648803890329" duration="15616000" />
       <workItem from="1649061476761" duration="586000" />
-      <workItem from="1649066667629" duration="10800000" />
+      <workItem from="1649066667629" duration="12876000" />
+      <workItem from="1649094417718" duration="1753000" />
+      <workItem from="1649152234335" duration="11721000" />
+      <workItem from="1649168571143" duration="8036000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>
@@ -167,6 +188,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="Client part constructing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Client part constructing" />
   </component>
 </project>

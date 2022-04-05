@@ -14,6 +14,8 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 import { UserModel } from '../models/user.model';
 import { Tokens } from './types';
 import { Public } from '../decorators';
+import { AuthGuard } from '@nestjs/passport';
+import { Response as Res } from 'express';
 
 @Controller('auth')
 export class AuthController {
@@ -48,9 +50,14 @@ export class AuthController {
     return this.authService.recovery(dto);
   }
 
-  @Public()
+  // @Public()
   @Post('refresh')
-  refresh(@Body() email: string, refreshToken: string): Promise<Tokens> {
-    return this.authService.refresh(email, refreshToken);
+  refresh(@Body() email: string, rt: string): Promise<Tokens> {
+    return this.authService.refresh(email, rt);
+  }
+
+  @Get('ok')
+  helloWorld() {
+    return 'ok';
   }
 }

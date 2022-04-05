@@ -58,19 +58,14 @@ export class AuthService {
     return this.usersService.forgotPassword(dto.email);
   }
 
-  async refresh(email: string, refreshToken: string): Promise<Tokens> {
-    return;
-  }
-
-  async refreshTokens(email: string, rt: string): Promise<Tokens> {
+  async refresh(email: string, rt: string): Promise<Tokens> {
     const user = await this.usersService.findOne(email);
     if (!user || !user.hashedRt) throw new ForbiddenException('Access Denied');
-
     const rtMatches = await bcrypt.compare(user.hashedRt, rt);
     if (!rtMatches) throw new ForbiddenException('Access Denied');
 
     const tokens = await this.getTokens(email);
-    await this.updateRtHash(email, tokens.refresh_token);
+    //  await this.updateRtHash(email, tokens.refresh_token);
 
     return tokens;
   }

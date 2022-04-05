@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input[type='password'] ~ svg[data-icon='lock-closed'],
+input[type='password'] ~ svg[data-icon='eye'] {
+    display: none;
+}
+
+input[type='text'] ~ svg[data-icon='lock-opened'],
+input[type='text'] ~ svg[data-icon='eye-off'] {
+    display: none;
+}

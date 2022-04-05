@@ -7,11 +7,11 @@ import { AtGuard } from './auth/guards';
 
 @Module({
   imports: [ConfigModule.forRoot(), AuthModule, UsersModule],
-  providers: [
-    {
-      provide: APP_GUARD,
-      useClass: AtGuard,
-    },
-  ],
+  // providers: [
+  //   {
+  //     provide: APP_GUARD,
+  //     useClass: AtGuard,
+  //   },
+  // ],
 })
 export class AppModule {}
