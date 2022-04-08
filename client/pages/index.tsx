@@ -1,54 +1,65 @@
-import {
-  EmailInput,
-  Button,
-  Footer,
-  PasswordInput,
-  Main as MainContainer,
-  FormLayout,
-  Layout,
-  Header,
-} from "../components";
-import { useState } from "react";
-import { router } from "next/client";
+import { Button, Header } from "../components";
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { AuthContext } from "../context/Auth";
+import { getAccessCode } from "../requests";
+import { GetServerSideProps } from "next";
+import { AxiosResponse } from "axios";
 
-const Main = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [type, setType] = useState<"text" | "password">("password");
-  const [title, setTitle] = useState<"Welcome" | "Wrong password" | "Oops">(
-    "Welcome"
-  );
+const Dashboard = () => {
   const router = useRouter();
+  const { userEmail } = useContext(AuthContext);
 
-  const titleHandler = () => {};
-
-  const formSubmit = async (e: Event) => {
-    e.preventDefault();
-    setEmail("");
-    setPassword("");
-    await router.push("/dashboard");
-  };
+  useEffect(() => {
+    try {
+      getAccessCode().then((code: AxiosResponse<string>) => {
+        if (typeof code === "string") {
+          localStorage.setItem("access_code", code);
+          console.log(localStorage.getItem("access_code"));
+        }
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
 
   return (
     <>
-      <Layout>
-        <Header />
-        <MainContainer title={title}>
-          <FormLayout userAuth onSubmit={formSubmit}>
-            <EmailInput onChange={setEmail} value={email} />
-            <PasswordInput
-              onChange={setPassword}
-              value={password}
-              type={type}
-              setType={setType}
-            />
-          </FormLayout>
-        </MainContainer>
-        <Footer />
-      </Layout>
+      <Header className="mt-10" />
+      <div className="px-5 text-center mt-10">
+        <h1 className="text-3xl font-medium lg:text-4xl xl:text-5xl">
+          Welcome!
+        </h1>
+        {userEmail && (
+          <h2 className="text-lg lg:text-xl xl:text-2xl mt-3">
+            Your email is {userEmail}
+          </h2>
+        )}
+        {userEmail && <Button className="mt-5">Log Out</Button>}
+        {!userEmail && (
+          <div className="flex justify-center items-center flex-col">
+            <Button
+              clickHandler={() => router.push("/login")}
+              className={"mt-12"}
+            >
+              Log in
+            </Button>
+            <Button
+              clickHandler={() => router.push("/new-user")}
+              className={"mt-12"}
+            >
+              Registration
+            </Button>
+          </div>
+        )}
+      </div>
     </>
   );
 };
 
-export default Main;
+export const getServerSideProps = async (ctx) => {
+  return { props: {} };
+};
+
+export default Dashboard;

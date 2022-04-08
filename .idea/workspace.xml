@@ -2,14 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Client part constructing">
+      <change afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/EmailInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/EmailInput.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/FormLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/FormLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PasswordInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PasswordInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/dashboard.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/dtos/registration.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/registration.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,11 +41,22 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/client/requests/login.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/server/src/main.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/new-user.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/server/src/auth/auth.service.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/server/src/auth/auth.controller.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/forgot-password.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/requests/index.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/components/FormLayout.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/client/pages/login.tsx" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="273fY1MJAQwHJapBpl5RZZROVwE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -48,21 +73,21 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.14.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/dist" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\login\server\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="D:\login\server\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\login\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\login\server\dist" />
       <recent name="D:\login\client\assets" />
       <recent name="D:\login\client\certificates" />
       <recent name="D:\login\server\secrets" />
-      <recent name="D:\login\server\dist" />
       <recent name="D:\login\server\src\secrets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -138,7 +163,9 @@
       <workItem from="1649066667629" duration="12876000" />
       <workItem from="1649094417718" duration="1753000" />
       <workItem from="1649152234335" duration="11721000" />
-      <workItem from="1649168571143" duration="13366000" />
+      <workItem from="1649168571143" duration="39090000" />
+      <workItem from="1649346543458" duration="7481000" />
+      <workItem from="1649413301363" duration="19473000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>

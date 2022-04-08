@@ -1,5 +1,4 @@
 import {
-  Body,
   ForbiddenException,
   HttpException,
   HttpStatus,
@@ -10,10 +9,10 @@ import * as bcrypt from 'bcrypt';
 import { UserModel } from '../models/user.model';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
-import { RegisterRequest } from '../dtos';
-import { LoginRequest } from '../dtos';
+import { LoginRequest, RegisterRequest } from '../dtos';
 import { JwtPayload, Tokens } from './types';
 import { ConfigService } from '@nestjs/config';
+import * as crypto from 'crypto';
 
 @Injectable()
 export class AuthService {
@@ -29,26 +28,74 @@ export class AuthService {
     if (logoutUser) return email;
   }
 
-  async registration(dto: RegisterRequest) {
-    const { email, password } = dto;
-    const candidatePassword = await this.usersService.findOne(email);
-    if (candidatePassword)
-      throw new HttpException(
-        `User with this email ${email} already exists`,
-        HttpStatus.BAD_REQUEST,
+  async registration(
+    dto: RegisterRequest,
+    req,
+  ): Promise<{
+    tokens: {
+      access_token: string;
+      refresh_token: string;
+    };
+    user: { password: string; email: string };
+  }> {
+    const validAccessCode = this.accessCodeValidation(req.cookies.access_code);
+    if (validAccessCode) {
+      const { email, password } = dto;
+      const candidatePassword = await this.usersService.findOne(email);
+      if (candidatePassword)
+        throw new HttpException(
+          `User with this email ${email} already exists`,
+          HttpStatus.BAD_REQUEST,
+        );
+      const tokens = await this.getTokens(email);
+      const hashedPassword: string = await bcrypt.hash(password, 5);
+      await this.usersService.createUser(
+        email,
+        hashedPassword,
+        tokens.refresh_token,
       );
-    const tokens = await this.getTokens(email);
-    const hashedPassword: string = await bcrypt.hash(password, 5);
-    const hashedToken = await bcrypt.hash(tokens.refresh_token, 5);
-    await this.usersService.createUser(email, hashedPassword, hashedToken);
-    return tokens;
+      return {
+        tokens: {
+          access_token: tokens.access_token,
+          refresh_token: tokens.refresh_token,
+        },
+        user: {
+          email,
+          password,
+        },
+      };
+    } else {
+      throw new UnauthorizedException();
+    }
   }
 
-  async login(dto: LoginRequest) {
+  async login(
+    dto: LoginRequest,
+    req,
+  ): Promise<{
+    tokens: Promise<Tokens>;
+    user: { password: string; email: string };
+  }> {
     try {
-      const { email, password } = dto;
-      const candidate = await this.usersService.validateUser(email, password);
-      return this.getTokens(candidate.email);
+      const accessCode = req.cookies.access_code;
+      const validAccessCode = this.accessCodeValidation(accessCode);
+      if (validAccessCode) {
+        const { email, password } = dto;
+        const candidate = await this.usersService.validateUser(
+          email,
+          password,
+          accessCode,
+        );
+        if (candidate) {
+          return {
+            tokens: this.getTokens(candidate.email),
+            user: {
+              email,
+              password,
+            },
+          };
+        }
+      }
     } catch (error: any) {
       throw new UnauthorizedException();
     }
@@ -63,24 +110,22 @@ export class AuthService {
     if (!user || !user.hashedRt) throw new ForbiddenException('Access Denied');
     const rtMatches = await bcrypt.compare(user.hashedRt, rt);
     if (!rtMatches) throw new ForbiddenException('Access Denied');
-
-    const tokens = await this.getTokens(email);
     //  await this.updateRtHash(email, tokens.refresh_token);
 
-    return tokens;
+    return await this.getTokens(email);
   }
 
-  async updateRtHash(email: string, rt: string): Promise<void> {
-    const hash = await bcrypt.hash(rt);
-    // await this.users.({
-    //   where: {
-    //     id: userId,
-    //   },
-    //   data: {
-    //     hashedRt: hash,
-    //   },
-    // });
-  }
+  // async updateRtHash(email: string, rt: string): Promise<void> {
+  //   const hash = await bcrypt.hash(rt);
+  //   // await this.users.({
+  //   //   where: {
+  //   //     id: userId,
+  //   //   },
+  //   //   data: {
+  //   //     hashedRt: hash,
+  //   //   },
+  //   // });
+  // }
 
   async getTokens(email: string): Promise<Tokens> {
     const jwtPayload: JwtPayload = {
@@ -102,5 +147,19 @@ export class AuthService {
       access_token: at,
       refresh_token: rt,
     };
+  }
+
+  async createSessionCode() {
+    const accessCode = crypto.randomBytes(8).toString('hex');
+    const existingCode = await this.accessCodeValidation(accessCode);
+    if (existingCode) {
+      await this.createSessionCode();
+    }
+    await this.usersService.setAccessCode(accessCode);
+    return accessCode;
+  }
+
+  async accessCodeValidation(accessCode: string) {
+    return this.usersService.checkCode(accessCode);
   }
 }

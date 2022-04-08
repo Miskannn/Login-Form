@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   EyeIcon,
   EyeOffIcon,
@@ -9,16 +9,14 @@ import {
 interface PasswordInputProps {
   onChange: (e: any) => void;
   value: string;
-  type: string;
-  setType: (type: "text" | "password") => void;
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = ({
   onChange,
   value,
-  type,
-  setType,
 }) => {
+  const [type, setType] = useState<"text" | "password">("password");
+
   return (
     <>
       <input
@@ -43,13 +41,13 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
       <LockOpenIcon className="h-6 w-6 ml-1 row-start-2 col-start-1 peer-focus:text-gray-800" />
 
       <EyeIcon
-        onClick={() => setType("password")}
+        onClick={() => setType("text")}
         data-icon="eye"
         className="h-6 w-6 row-start-2 col-start-4 justify-self-end cursor-pointer"
       />
 
       <EyeOffIcon
-        onClick={() => setType("text")}
+        onClick={() => setType("password")}
         data-icon="eye-off"
         className="h-6 w-6 row-start-2 col-start-4 justify-self-end cursor-pointer"
       />

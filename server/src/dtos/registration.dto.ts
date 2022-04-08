@@ -6,6 +6,6 @@ export class RegisterRequest {
   readonly email: string;
 
   @IsNotEmpty({ message: 'A password is required' })
-  @MinLength(6, { message: 'Your password must be at least 8 characters' })
+  @MinLength(6, { message: 'Your password must be at least 6 characters' })
   readonly password: string;
 }

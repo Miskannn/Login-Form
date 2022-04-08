@@ -6,6 +6,6 @@ export class LoginRequest {
   readonly email: string;
 
   @IsNotEmpty({ message: 'A password is required to login' })
-  @MinLength(8, { message: 'Password must be minimum 8 symbols length' })
+  @MinLength(6, { message: 'Password must be minimum 6 symbols length' })
   readonly password: string;
 }

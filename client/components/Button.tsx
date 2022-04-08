@@ -1,9 +1,9 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 interface ButtonProps {
   children: React.ReactChild | React.ReactNode;
   className?: string;
-  clickHandler?: () => void;
+  clickHandler?: any;
   isError?: boolean;
 }
 
@@ -15,6 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
+      onClick={clickHandler}
       className={`col-span-2 justify-self-end group-invalid:border
           group-invalid:border-gray-400 group-invalid:text-gray-400
           group-invalid:bg-transparent text-white bg-success-77

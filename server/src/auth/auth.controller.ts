@@ -4,6 +4,8 @@ import {
   Get,
   HttpCode,
   Post,
+  Req,
+  Response,
   UnauthorizedException,
   UseGuards,
 } from '@nestjs/common';
@@ -14,35 +16,53 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 import { UserModel } from '../models/user.model';
 import { Tokens } from './types';
 import { Public } from '../decorators';
-import { AuthGuard } from '@nestjs/passport';
-import { Response as Res } from 'express';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Public()
   @HttpCode(200)
   @Post('login')
   login(
     @Body() dto: LoginRequest,
-  ): Promise<Tokens> | Promise<UnauthorizedException> {
-    return this.authService.login(dto);
+    @Req() req,
+  ): Promise<{
+    tokens: Promise<Tokens>;
+    user: { password: string; email: string };
+  }> {
+    return this.authService.login(dto, req);
   }
 
-  @Public()
+  @Get('redirect')
+  async getAccessCode(@Response() res) {
+    const accessCode = await this.authService.createSessionCode();
+    return res
+      .cookie('access_key', accessCode, { httpOnly: true })
+      .status(300)
+      .redirect('http://localhost:3000/login');
+  }
+
   @Post('registration')
-  registration(@Body() dto: RegisterRequest): Promise<Tokens> {
-    return this.authService.registration(dto);
+  registration(
+    @Body() dto: RegisterRequest,
+    @Req() req,
+  ): Promise<{
+    tokens: {
+      access_token: string;
+      refresh_token: string;
+    };
+    user: { password: string; email: string };
+  }> {
+    return this.authService.registration(dto, req);
   }
 
-  @UseGuards(JwtAuthGuard)
   @HttpCode(200)
   @Get('logout')
   logout(@Body() dto: LoginRequest): Promise<string> {
     return this.authService.logout(dto);
   }
 
+  // @UseGuards(JwtAuthGuard)
   @Get('recovery')
   recovery(
     @Body() dto: Omit<UserModel, 'password'>,
@@ -50,14 +70,9 @@ export class AuthController {
     return this.authService.recovery(dto);
   }
 
-  // @Public()
+  @Public()
   @Post('refresh')
   refresh(@Body() email: string, rt: string): Promise<Tokens> {
     return this.authService.refresh(email, rt);
-  }
-
-  @Get('ok')
-  helloWorld() {
-    return 'ok';
   }
 }
