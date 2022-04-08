@@ -38,7 +38,9 @@ export class AuthService {
     };
     user: { password: string; email: string };
   }> {
-    const validAccessCode = this.accessCodeValidation(req.cookies.access_code);
+    console.log(req.cookies);
+    const validAccessCode = this.accessCodeValidation(req.cookies.access_key);
+    console.log(validAccessCode);
     if (validAccessCode) {
       const { email, password } = dto;
       const candidatePassword = await this.usersService.findOne(email);
@@ -77,8 +79,8 @@ export class AuthService {
     user: { password: string; email: string };
   }> {
     try {
-      const accessCode = req.cookies.access_code;
-      const validAccessCode = this.accessCodeValidation(accessCode);
+      const accessCode = req.cookies.access_key;
+      const validAccessCode = await this.accessCodeValidation(accessCode);
       if (validAccessCode) {
         const { email, password } = dto;
         const candidate = await this.usersService.validateUser(
@@ -151,15 +153,16 @@ export class AuthService {
 
   async createSessionCode() {
     const accessCode = crypto.randomBytes(8).toString('hex');
-    const existingCode = await this.accessCodeValidation(accessCode);
+    const existingCode = this.accessCodeValidation(accessCode);
     if (existingCode) {
       await this.createSessionCode();
     }
     await this.usersService.setAccessCode(accessCode);
+    console.log(accessCode);
     return accessCode;
   }
 
-  async accessCodeValidation(accessCode: string) {
+  private accessCodeValidation(accessCode: string) {
     return this.usersService.checkCode(accessCode);
   }
 }

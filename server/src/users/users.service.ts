@@ -13,7 +13,7 @@ export class UsersService {
     return this.users.get(email);
   }
 
-  async checkCode(accessCode: string): Promise<boolean> {
+  checkCode(accessCode: string): boolean {
     return this.access_codes.has(accessCode);
   }
 

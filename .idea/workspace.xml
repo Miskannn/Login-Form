@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Client part constructing">
-      <change afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
+    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Implementing oauth2(pkce flow), added access code validation, added support for https, updated client part of application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/FormLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/FormLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/PasswordInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PasswordInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/dashboard.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/registration.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/registration.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +146,7 @@
       <workItem from="1649152234335" duration="11721000" />
       <workItem from="1649168571143" duration="39090000" />
       <workItem from="1649346543458" duration="7481000" />
-      <workItem from="1649413301363" duration="19473000" />
+      <workItem from="1649413301363" duration="21476000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>
@@ -201,6 +182,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="Client part constructing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Client part constructing" />
+    <MESSAGE value="Implementing oauth2(pkce flow), added access code validation, added support for https, updated client part of application" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing oauth2(pkce flow), added access code validation, added support for https, updated client part of application" />
   </component>
 </project>
