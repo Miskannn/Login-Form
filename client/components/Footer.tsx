@@ -5,7 +5,7 @@ import Link from "next/link";
 export const Footer = () => {
   return (
     <footer>
-      <div className="flex justify-between pt-2 pb-4 sm:py-4 bg-gray-10 w-full">
+      <div className="flex justify-between pt-6 pb-5 sm:py-4 bg-gray-10 w-full">
         <a className="ml-6 pt-1" href="#">
           <GlobeAltIcon className="h-6 w-6 text-gray-50" />
         </a>

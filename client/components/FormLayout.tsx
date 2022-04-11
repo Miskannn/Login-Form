@@ -10,7 +10,6 @@ interface FormProps {
   requestHandler?: any;
   userAuth?: boolean;
   registration?: boolean;
-  error?: boolean;
 }
 
 export const FormLayout: React.FC<FormProps> = ({
@@ -19,13 +18,14 @@ export const FormLayout: React.FC<FormProps> = ({
   userAuth,
   registration,
   requestHandler,
-  error,
 }) => {
   return (
     <form
       onSubmit={(e: any) => {
         e.preventDefault();
-        onSubmit(e);
+        if (onSubmit) {
+          onSubmit(e);
+        }
       }}
       className="group grid grid-cols-[2rem_1fr_1fr_2rem] gap-4 items-center auto-rows-max text-gray-50"
     >
@@ -45,7 +45,7 @@ export const FormLayout: React.FC<FormProps> = ({
           </Button>
         </>
       ) : (
-        <Button>Get password</Button>
+        <Button clickHandler={requestHandler}>Get password</Button>
       )}
     </form>
   );

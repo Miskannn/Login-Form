@@ -1,7 +1,7 @@
 import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 
 export class LoginRequest {
-  @IsNotEmpty({ message: 'A username is required' })
+  @IsNotEmpty({ message: 'Email is required' })
   @IsEmail({ message: 'A email is required to login' })
   readonly email: string;
 

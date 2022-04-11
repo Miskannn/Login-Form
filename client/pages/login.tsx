@@ -31,7 +31,7 @@ const Main = () => {
       email: email,
       password: password,
     };
-    const res: any = await login(requestBody);
+    const res = await login(requestBody);
     if (res.status === 200) {
       setUserEmail(res.data.user.email);
       await router.push("/");
@@ -48,8 +48,8 @@ const Main = () => {
             <PasswordInput onChange={setPassword} value={password} />
           </FormLayout>
         </MainContainer>
-        <Footer />
       </Layout>
+      <Footer />
     </>
   );
 };

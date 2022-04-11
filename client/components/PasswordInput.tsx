@@ -41,13 +41,13 @@ export const PasswordInput: React.FC<PasswordInputProps> = ({
       <LockOpenIcon className="h-6 w-6 ml-1 row-start-2 col-start-1 peer-focus:text-gray-800" />
 
       <EyeIcon
-        onClick={() => setType("text")}
+        onClick={() => setType("password")}
         data-icon="eye"
         className="h-6 w-6 row-start-2 col-start-4 justify-self-end cursor-pointer"
       />
 
       <EyeOffIcon
-        onClick={() => setType("password")}
+        onClick={() => setType("text")}
         data-icon="eye-off"
         className="h-6 w-6 row-start-2 col-start-4 justify-self-end cursor-pointer"
       />

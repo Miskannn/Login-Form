@@ -28,75 +28,35 @@ export class AuthService {
     if (logoutUser) return email;
   }
 
-  async registration(
-    dto: RegisterRequest,
-    req,
-  ): Promise<{
-    tokens: {
-      access_token: string;
-      refresh_token: string;
-    };
-    user: { password: string; email: string };
-  }> {
-    console.log(req.cookies);
-    const validAccessCode = this.accessCodeValidation(req.cookies.access_key);
-    console.log(validAccessCode);
-    if (validAccessCode) {
-      const { email, password } = dto;
-      const candidatePassword = await this.usersService.findOne(email);
-      if (candidatePassword)
-        throw new HttpException(
-          `User with this email ${email} already exists`,
-          HttpStatus.BAD_REQUEST,
-        );
-      const tokens = await this.getTokens(email);
-      const hashedPassword: string = await bcrypt.hash(password, 5);
-      await this.usersService.createUser(
-        email,
-        hashedPassword,
-        tokens.refresh_token,
+  async registration(dto: RegisterRequest): Promise<{ access_code: string }> {
+    const { email, password } = dto;
+    const candidate = await this.usersService.findOne(email);
+    if (candidate) {
+      throw new HttpException(
+        `User with this email ${email} already exists`,
+        HttpStatus.BAD_REQUEST,
       );
-      return {
-        tokens: {
-          access_token: tokens.access_token,
-          refresh_token: tokens.refresh_token,
-        },
-        user: {
-          email,
-          password,
-        },
-      };
-    } else {
-      throw new UnauthorizedException();
     }
+    const hashedPassword: string = await bcrypt.hash(password, 5);
+    await this.usersService.createUser(email, hashedPassword, null);
+    const accessCode = await this.createAccessCode(email);
+    return { access_code: accessCode };
+    // res
+    //   .status(201)
+    //   .cookie('access_key', accessCode, { httpOnly: false, secure: true })
+    //   .json('ok');
   }
 
-  async login(
-    dto: LoginRequest,
-    req,
-  ): Promise<{
-    tokens: Promise<Tokens>;
-    user: { password: string; email: string };
-  }> {
+  async login(dto: LoginRequest, res): Promise<typeof res> {
     try {
-      const accessCode = req.cookies.access_key;
-      const validAccessCode = await this.accessCodeValidation(accessCode);
-      if (validAccessCode) {
-        const { email, password } = dto;
-        const candidate = await this.usersService.validateUser(
-          email,
-          password,
-          accessCode,
-        );
-        if (candidate) {
-          return {
-            tokens: this.getTokens(candidate.email),
-            user: {
-              email,
-              password,
-            },
-          };
-        }
+      const { email, password } = dto;
+      const candidate = await this.usersService.validateUser(email, password);
+      if (candidate) {
+        const accessCode = await this.createAccessCode(email);
+        return res
+          .status(200)
+          .cookie('access_key', accessCode, { httpOnly: false, secure: true })
+          .json('ok');
       }
     } catch (error: any) {
       throw new UnauthorizedException();
@@ -109,25 +69,10 @@ export class AuthService {
 
   async refresh(email: string, rt: string): Promise<Tokens> {
     const user = await this.usersService.findOne(email);
-    if (!user || !user.hashedRt) throw new ForbiddenException('Access Denied');
-    const rtMatches = await bcrypt.compare(user.hashedRt, rt);
-    if (!rtMatches) throw new ForbiddenException('Access Denied');
-    //  await this.updateRtHash(email, tokens.refresh_token);
-
+    if (!user || !user.rt) throw new ForbiddenException('Access Denied');
+    if (!(user.rt === rt)) throw new ForbiddenException('Access Denied');
     return await this.getTokens(email);
   }
-
-  // async updateRtHash(email: string, rt: string): Promise<void> {
-  //   const hash = await bcrypt.hash(rt);
-  //   // await this.users.({
-  //   //   where: {
-  //   //     id: userId,
-  //   //   },
-  //   //   data: {
-  //   //     hashedRt: hash,
-  //   //   },
-  //   // });
-  // }
 
   async getTokens(email: string): Promise<Tokens> {
     const jwtPayload: JwtPayload = {
@@ -151,18 +96,25 @@ export class AuthService {
     };
   }
 
-  async createSessionCode() {
-    const accessCode = crypto.randomBytes(8).toString('hex');
-    const existingCode = this.accessCodeValidation(accessCode);
-    if (existingCode) {
-      await this.createSessionCode();
+  async accessControl(email: string, access_code: string): Promise<Tokens> {
+    const validAccessCode = this.accessCodeValidation(email, access_code);
+    if (validAccessCode) {
+      const user = await this.usersService.findOne(email);
+      const tokens = await this.getTokens(email);
+      user.rt = tokens.refresh_token;
+      return tokens;
+    } else {
+      throw new UnauthorizedException();
     }
-    await this.usersService.setAccessCode(accessCode);
-    console.log(accessCode);
+  }
+
+  async createAccessCode(email: string) {
+    const accessCode = crypto.randomBytes(8).toString('hex');
+    await this.usersService.setAccessCode(email, accessCode);
     return accessCode;
   }
 
-  private accessCodeValidation(accessCode: string) {
-    return this.usersService.checkCode(accessCode);
+  private accessCodeValidation(email: string, accessCode: string) {
+    return this.usersService.checkCode(email, accessCode);
   }
 }
