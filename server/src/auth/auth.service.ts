@@ -24,8 +24,12 @@ export class AuthService {
 
   async logout(dto: UserModel): Promise<string> {
     const { email } = dto;
-    const logoutUser = this.usersService.findOne(email);
-    if (logoutUser) return email;
+    const logoutUser = await this.usersService.findOne(email);
+    if (logoutUser) {
+      logoutUser.rt = null;
+      return email;
+    }
+    throw new UnauthorizedException();
   }
 
   async registration(dto: RegisterRequest): Promise<{ access_code: string }> {
@@ -41,10 +45,6 @@ export class AuthService {
     await this.usersService.createUser(email, hashedPassword, null);
     const accessCode = await this.createAccessCode(email);
     return { access_code: accessCode };
-    // res
-    //   .status(201)
-    //   .cookie('access_key', accessCode, { httpOnly: false, secure: true })
-    //   .json('ok');
   }
 
   async login(dto: LoginRequest, res): Promise<typeof res> {
@@ -53,10 +53,7 @@ export class AuthService {
       const candidate = await this.usersService.validateUser(email, password);
       if (candidate) {
         const accessCode = await this.createAccessCode(email);
-        return res
-          .status(200)
-          .cookie('access_key', accessCode, { httpOnly: false, secure: true })
-          .json('ok');
+        return { access_code: accessCode };
       }
     } catch (error: any) {
       throw new UnauthorizedException();

@@ -13,7 +13,11 @@ function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
       {!loading && <Component {...pageProps} />}
-      {loading && <Circles wrapperClass="flex justify-center align-center" />}
+      {loading && (
+        <div className={"min-h-full flex justify-center items-center"}>
+          <h1 className="flex justify-center">...loading</h1>
+        </div>
+      )}
     </AuthProvider>
   );
 }

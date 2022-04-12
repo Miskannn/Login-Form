@@ -11,8 +11,9 @@ import { useContext, useState } from "react";
 import { useRouter } from "next/router";
 import { login } from "../requests";
 import { AuthContext } from "../context/Auth";
+import { accessControlValidation } from "../helpers/authHelper";
 
-const Main = () => {
+const LoginPage = () => {
   const { setUserEmail } = useContext(AuthContext);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -21,21 +22,26 @@ const Main = () => {
   );
   const router = useRouter();
 
-  const titleHandler = () => {};
-
   const signIn = async (e) => {
     e.preventDefault();
-    setEmail("");
-    setPassword("");
-    const requestBody = {
+    const loginBody = {
       email: email,
       password: password,
     };
-    const res = await login(requestBody);
+    const res = await login(loginBody);
     if (res.status === 200) {
-      setUserEmail(res.data.user.email);
-      await router.push("/");
-    } else return "You are already authorized";
+      const code: string = res.data.access_code;
+      const accessControl = await accessControlValidation(
+        loginBody,
+        code,
+        setUserEmail
+      );
+      if (accessControl) {
+        await router.push("/");
+      }
+    } else {
+      setTitle("Oops");
+    }
   };
 
   return (
@@ -54,4 +60,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default LoginPage;

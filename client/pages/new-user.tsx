@@ -8,10 +8,10 @@ import {
   Main,
   PasswordInput,
 } from "../components";
-import jwtDecode from "jwt-decode";
-import { accessControl, registration } from "../requests";
+import { registration } from "../requests";
 import { useRouter } from "next/router";
 import { AuthContext } from "../context/Auth";
+import { accessControlValidation } from "../helpers/authHelper";
 
 const NewUser = () => {
   const { setUserEmail } = useContext(AuthContext);
@@ -28,23 +28,17 @@ const NewUser = () => {
     const res = await registration(requestBody);
     if (res.status === 201) {
       const code = res.data.access_code;
-      const accessValidation = await accessControl({
-        email: requestBody.email,
-        access_code: code,
-      });
-      if (accessValidation.status === 200) {
-        const decodedToken: any = jwtDecode(accessValidation.data.access_token);
-        setUserEmail(decodedToken?.email);
-        console.log(new Date(decodedToken.exp));
-        localStorage.setItem(
-          "access_token",
-          accessValidation.data.access_token
-        );
+      const accessStatus = await accessControlValidation(
+        requestBody,
+        code,
+        setUserEmail
+      );
+      if (accessStatus) {
         await router.push("/");
-      } else {
-        return "Access-control error";
       }
-    } else return "Something went wrong";
+    } else {
+      return "Access-control error";
+    }
   };
 
   return (

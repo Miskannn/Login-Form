@@ -1,28 +1,34 @@
 import { Button, Header } from "../components";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { AuthContext } from "../context/Auth";
-import { accessControl } from "../requests";
-import { GetServerSideProps } from "next";
-import { AxiosResponse } from "axios";
+import jwtDecode from "jwt-decode";
+import { IDecodedToken } from "../types/DecodedToken";
+import { logout } from "../helpers/authHelper";
 
 const Dashboard = () => {
   const router = useRouter();
-  const { userEmail } = useContext(AuthContext);
+  const { userEmail, setUserEmail } = useContext(AuthContext);
 
-  // useEffect(() => {
-  //   try {
-  //     accessControl().then((code: AxiosResponse<string>) => {
-  //       if (typeof code === "string") {
-  //         localStorage.setItem("access_code", code);
-  //         console.log(localStorage.getItem("access_code"));
-  //       }
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }, []);
+  const logoutHandler = async () => {
+    setUserEmail(null);
+    await logout();
+  };
+
+  useLayoutEffect(() => {
+    try {
+      const decodedToken: IDecodedToken = jwtDecode(
+        localStorage.getItem("access_token")
+      );
+      if (decodedToken && decodedToken.exp * 1000 > Date.now()) {
+        setUserEmail(decodedToken.email);
+      } else {
+        router.push("/login");
+      }
+    } catch (e) {
+      router.push("/login");
+    }
+  }, []);
 
   return (
     <>
@@ -36,7 +42,11 @@ const Dashboard = () => {
             Your email is {userEmail}
           </h2>
         )}
-        {userEmail && <Button className="mt-5">Log Out</Button>}
+        {userEmail && (
+          <Button clickHandler={logoutHandler} className="mt-5">
+            Log Out
+          </Button>
+        )}
         {!userEmail && (
           <div className="flex justify-center items-center flex-col">
             <Button
@@ -56,10 +66,6 @@ const Dashboard = () => {
       </div>
     </>
   );
-};
-
-export const getServerSideProps = async (ctx) => {
-  return { props: {} };
 };
 
 export default Dashboard;

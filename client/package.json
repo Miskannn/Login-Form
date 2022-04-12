@@ -16,6 +16,7 @@
     "@heroicons/react": "^1.0.6",
     "autoprefixer": "^10.4.4",
     "axios": "^0.26.1",
+    "date-fns": "^2.28.0",
     "heroicons": "^1.0.6",
     "jwt-decode": "^3.1.2",
     "next": "^12.1.2",
