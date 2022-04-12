@@ -14,6 +14,7 @@ const httpsOptions = {
   key: sslMock.private,
   cert: sslMock.cert,
 };
+
 app.prepare().then(() => {
   createServer(httpsOptions, (req, res) => {
     const parsedUrl = parse(req.url, true);

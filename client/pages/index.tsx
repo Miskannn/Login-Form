@@ -1,28 +1,11 @@
 import { Button, Header } from "../components";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import { AuthContext } from "../context/Auth";
-import { accessControl } from "../requests";
-import { GetServerSideProps } from "next";
-import { AxiosResponse } from "axios";
 
 const Dashboard = () => {
   const router = useRouter();
   const { userEmail } = useContext(AuthContext);
-
-  // useEffect(() => {
-  //   try {
-  //     accessControl().then((code: AxiosResponse<string>) => {
-  //       if (typeof code === "string") {
-  //         localStorage.setItem("access_code", code);
-  //         console.log(localStorage.getItem("access_code"));
-  //       }
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }, []);
 
   return (
     <>
