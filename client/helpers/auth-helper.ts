@@ -22,8 +22,6 @@ export const getUserInfo = async (): Promise<{ email: string } | void> => {
   const res = await axios.get("/api/user-info");
   if (res.status === 200) {
     return res.data.email;
-  } else {
-    await Router.push("/login");
   }
 };
 

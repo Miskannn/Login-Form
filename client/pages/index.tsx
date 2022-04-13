@@ -15,7 +15,7 @@ const Dashboard = () => {
   useEffect(() => {
     getUserInfo()
       .then((email) => setUserEmail(email))
-      .catch((e) => router.push("/login"));
+      .catch(() => router.push("/login"));
   }, []);
 
   return (
