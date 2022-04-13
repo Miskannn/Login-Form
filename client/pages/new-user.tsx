@@ -26,7 +26,7 @@ const NewUser = () => {
     };
     try {
       const res = await registration(requestBody);
-      if (res.status === 200) await router.push("/");
+      if (res.status === 201) await router.push("/");
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage as Title);
     }

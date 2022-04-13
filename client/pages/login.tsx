@@ -10,12 +10,13 @@ import {
 import { useState } from "react";
 import { login } from "../helpers";
 import { Title } from "../types";
-import { router } from "next/client";
+import { useRouter } from "next/router";
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [title, setTitle] = useState<Title>("Welcome");
+  const router = useRouter();
 
   const signIn = async (e) => {
     e.preventDefault();

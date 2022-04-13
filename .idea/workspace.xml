@@ -2,46 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Implementing oauth2(pkce flow), added access code validation, added support for https, updated client part of application">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/helpers/auth-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/helpers/auth-helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/nest-cli.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/guards/at.guard.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/guards/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/guards/rt.guard.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/jwt-auth.guard.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/strategies/at.strategy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/strategies/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/strategies/rt.strategy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/types/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/types/jwt-payload-with-rt.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/types/jwt-payload.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/types/tokens.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/types/user-schema-store.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/types/user-schema.type.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/decorators/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/decorators/public.decorator.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/access-control.dto.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/registration.dto.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/exceptions/validation.exception.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/models/user.model.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/pipes/validation.pipe.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/users/users.module.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tsconfig.build.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/new-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/new-user.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +84,14 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.https">
-    <configuration name="index.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/server/index.ts" working-dir="$PROJECT_DIR$/server">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
       <method v="2" />
     </configuration>
     <configuration name="https" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -140,6 +114,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="prod" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="prod" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start:dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/server/package.json" />
       <command value="run" />
@@ -153,9 +137,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.https" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.prod" />
         <item itemvalue="npm.start:dev" />
         <item itemvalue="npm.prebuild" />
-        <item itemvalue="Node.js.index.ts" />
       </list>
     </recent_temporary>
   </component>
@@ -185,6 +170,7 @@
       <workItem from="1649346543458" duration="7481000" />
       <workItem from="1649413301363" duration="53441000" />
       <workItem from="1649851530647" duration="14145000" />
+      <workItem from="1649868269644" duration="7134000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>
