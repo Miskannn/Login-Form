@@ -2,11 +2,12 @@ import { serialize, parse } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const tokenName = process.env.TOKEN_NAME || "token";
+const env = process.env.NODE_ENV || "production";
 
 export const setTokenCookie = (res: NextApiResponse, token: string): void => {
   const cookie = serialize(tokenName, token, {
     maxAge: Number(process.env.COOKIES_MAX_AGE) || 15000000,
-    httpOnly: true,
+    httpOnly: env !== "development",
     secure: true,
     path: "/",
   });

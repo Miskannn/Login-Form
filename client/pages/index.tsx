@@ -1,11 +1,22 @@
 import { Button, Header } from "../components";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { AuthContext } from "../context/Auth";
+import { getUserInfo, logout } from "../helpers";
 
 const Dashboard = () => {
   const router = useRouter();
-  const { userEmail } = useContext(AuthContext);
+  const { userEmail, setUserEmail } = useContext(AuthContext);
+
+  const logoutHandler = async () => {
+    await logout();
+  };
+
+  useEffect(() => {
+    getUserInfo()
+      .then((email) => setUserEmail(email))
+      .catch((e) => router.push("/login"));
+  }, []);
 
   return (
     <>
@@ -19,7 +30,11 @@ const Dashboard = () => {
             Your email is {userEmail}
           </h2>
         )}
-        {userEmail && <Button className="mt-5">Log Out</Button>}
+        {userEmail && (
+          <Button className="mt-5" clickHandler={logoutHandler}>
+            Log Out
+          </Button>
+        )}
         {!userEmail && (
           <div className="flex justify-center items-center flex-col">
             <Button

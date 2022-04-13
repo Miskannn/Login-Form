@@ -7,21 +7,15 @@ import {
   Layout,
   Header,
 } from "../components";
-import { useContext, useState } from "react";
-import { useRouter } from "next/router";
-import { login } from "../requests";
-import { AuthContext } from "../context/Auth";
+import { useState } from "react";
+import { login } from "../helpers";
+import { Title } from "../types";
+import { router } from "next/client";
 
-const Main = () => {
-  const { setUserEmail } = useContext(AuthContext);
+const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [title, setTitle] = useState<"Welcome" | "Wrong password" | "Oops">(
-    "Welcome"
-  );
-  const router = useRouter();
-
-  const titleHandler = () => {};
+  const [title, setTitle] = useState<Title>("Welcome");
 
   const signIn = async (e) => {
     e.preventDefault();
@@ -31,11 +25,12 @@ const Main = () => {
       email: email,
       password: password,
     };
-    const res = await login(requestBody);
-    if (res.status === 200) {
-      setUserEmail(res.data.user.email);
-      await router.push("/");
-    } else return "You are already authorized";
+    try {
+      const res = await login(requestBody);
+      if (res.status === 200) await router.push("/");
+    } catch (error) {
+      setTitle(error.response.data.errorMessage);
+    }
   };
 
   return (
@@ -54,4 +49,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default LoginPage;

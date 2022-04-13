@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "next dev",
+    "start": " cross-env NODE_ENV=development next dev",
     "https": "node server.js"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
     "axios": "^0.26.1",
     "bcrypt": "^5.0.1",
     "cookie": "^0.5.0",
+    "cross-env": "^7.0.3",
     "jwt-decode": "^3.1.2",
     "next": "^12.1.2",
     "postcss": "^8.4.12",

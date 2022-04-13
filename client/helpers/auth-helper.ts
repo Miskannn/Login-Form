@@ -1,41 +1,31 @@
 import Router from "next/router";
-import { getTokenCookie, setTokenCookie } from ".";
-import Iron from "@hapi/iron";
-import axios from "axios";
-import { NextApiRequest, NextApiResponse } from "next";
-import { Session } from "../types";
-
-const TOKEN_SECRET = process.env.TOKEN_SECRET || "secretnyisecret";
-const COOKIES_MAX_AGE = process.env.COOKIES_MAX_AGE || 15000000;
+import axios, { AxiosResponse } from "axios";
 
 export const logout = async (): Promise<void> => {
   const res = await axios.get("/api/logout");
-  if (res.statusText === "ok") {
-    await Router.push("/");
+  if (res.status === 200) {
+    await Router.push("/login");
   }
 };
 
-export const setSession = async (
-  res: NextApiResponse,
-  userData
-): Promise<void> => {
-  const createdAt = Date.now();
-  const obj = { userData, createdAt, maxAge: COOKIES_MAX_AGE };
-  const token = await Iron.seal(obj, TOKEN_SECRET, Iron.defaults);
-  setTokenCookie(res, token);
-};
+export const login = async (body: {
+  email: string;
+  password: string;
+}): Promise<AxiosResponse> => await axios.post("/api/login", body);
 
-export const getSession = async (req: NextApiRequest): Promise<Session> => {
-  const token = getTokenCookie(req);
+export const registration = async (body: {
+  email: string;
+  password: string;
+}): Promise<AxiosResponse> => await axios.post("/api/registration", body);
 
-  if (!token) return;
-
-  const session = await Iron.unseal(token, TOKEN_SECRET, Iron.defaults);
-  const expiresAt = session.createdAt + session.maxAge * 1000;
-
-  if (Date.now() > expiresAt) {
-    throw new Error("Session is not valid");
+export const getUserInfo = async (): Promise<{ email: string } | void> => {
+  const res = await axios.get("/api/user-info");
+  if (res.status === 200) {
+    return res.data.email;
+  } else {
+    await Router.push("/login");
   }
-
-  return session;
 };
+
+export const forgotPassword = async (body: { email: string }) =>
+  await axios.put("/api/forgot-password", body);

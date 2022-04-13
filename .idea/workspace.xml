@@ -3,27 +3,28 @@
   <component name="ChangeListManager">
     <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Implementing oauth2(pkce flow), added access code validation, added support for https, updated client part of application">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/FormLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/FormLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/PasswordInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PasswordInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/context/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/context/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/auth-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/helpers/auth-helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/cookies-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/helpers/cookies-helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/helpers/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/logout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/logout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/storage/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/storage/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/userInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/user-info.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/users/email/[userEmail].ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/forgot-password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/forgot-password.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/new-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/new-user.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/requests/getAccessCode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/requests/access-control.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/requests/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/requests/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/auth/types/user-schema-store.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/auth/types/user-schema-store.type.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/dtos/login.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/users/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/requests/access-control.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/requests/forgot-password.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/requests/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/requests/login.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/requests/registration.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +32,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="alter" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -42,13 +48,11 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/client/requests/login.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/server/src/main.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/client/pages/new-user.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/server/src/auth/auth.service.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/server/src/auth/auth.controller.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/client/pages/forgot-password.tsx" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/client/requests/index.ts" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/client/components/FormLayout.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/client/pages/login.tsx" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -79,7 +83,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\login\server\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="D:\login\client\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="D:\login\server\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -91,11 +95,11 @@
       <recent name="D:\login\server\src\secrets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\login\client\pages\api\users\email" />
+      <recent name="D:\login\client\pages\api" />
+      <recent name="D:\login\client\pages\api\storage" />
       <recent name="D:\login\client\public" />
       <recent name="D:\login\client\certificates" />
-      <recent name="D:\login\client\styles" />
-      <recent name="D:\login\server" />
-      <recent name="D:\login\server\src" />
     </key>
   </component>
   <component name="RunManager" selected="npm.https">
@@ -166,6 +170,7 @@
       <workItem from="1649168571143" duration="39090000" />
       <workItem from="1649346543458" duration="7481000" />
       <workItem from="1649413301363" duration="53441000" />
+      <workItem from="1649851530647" duration="13919000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>

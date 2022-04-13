@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, EmailInput, FormLayout, Layout, Main } from "../components";
-import { forgotPassword } from "../requests/forgot-password";
 import { router } from "next/client";
+import { forgotPassword } from "../helpers";
 
 const ForgotPassword = () => {
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState<string>("");
@@ -13,10 +13,9 @@ const ForgotPassword = () => {
       const res = await forgotPassword({
         email: forgotPasswordEmail,
       });
-      setNewPassword(res.data);
-    } catch (e) {
-      console.log(errorMessage);
-      await setErrorMessage("User don't authorized");
+      setNewPassword(res.data.password);
+    } catch (error) {
+      setErrorMessage(error.response.data.errorMessage);
     }
   };
 
