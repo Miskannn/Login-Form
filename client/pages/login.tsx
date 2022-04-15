@@ -46,7 +46,7 @@ const LoginPage = () => {
       <Layout>
         <Header />
         <MainContainer title={title}>
-          <FormLayout onSubmit={(e) => signIn(e)}>
+          <FormLayout onSubmit={signIn}>
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
               className={"row-start-2"}

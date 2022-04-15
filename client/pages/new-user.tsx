@@ -49,7 +49,7 @@ const NewUser = () => {
         <Header />
         <Main title={errorMessage ? errorMessage : "Register"}>
           <FormLayout
-            onSubmit={(e: React.FormEvent<HTMLFormElement>) => register(e)}
+            onSubmit={register}
           >
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
