@@ -9,10 +9,10 @@ interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({
   children,
-  className,
   clickHandler,
   isError,
-}) => {
+  className= "",
+  }) => {
   return (
     <button
       onClick={clickHandler}

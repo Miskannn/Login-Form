@@ -10,7 +10,7 @@ interface MainLayoutProps {
 export const Main: React.FC<MainLayoutProps> = ({
   children,
   title,
-  className,
+  className= "",
   ...props
 }) => {
   return (

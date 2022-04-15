@@ -16,7 +16,7 @@ interface PasswordInputProps {
 export const PasswordInput: React.FC<PasswordInputProps> = ({
   onChange,
   value,
-  className,
+  className= "",
   placeholder = "Password",
 }) => {
   const [type, setType] = useState<"text" | "password">("password");

@@ -8,10 +8,10 @@ interface CustomLinkProps {
 }
 
 export const CustomLink: React.FC<CustomLinkProps> = ({
-  className,
   href,
   name,
-}) => {
+  className,
+  }) => {
   return (
     <Link href={`/${href}`}>
       <a className={`col-span-2 text-gray-500 pl-1 pr-1 ${className}`}>
