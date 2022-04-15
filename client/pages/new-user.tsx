@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Button,
   EmailInput,
   Footer,
   FormLayout,
@@ -48,9 +49,7 @@ const NewUser = () => {
         <Header />
         <Main title={errorMessage ? errorMessage : "Register"}>
           <FormLayout
-            userAuth
-            registration
-            onSubmit={(e: MouseEvent) => register(e)}
+            onSubmit={(e: React.FormEvent<HTMLFormElement>) => register(e)}
           >
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
@@ -65,6 +64,7 @@ const NewUser = () => {
               placeholder={"Confirm password"}
             />
             <CustomLink name="Login" href="login" />
+            <Button clickHandler={register}>Registration</Button>
           </FormLayout>
         </Main>
         <Footer href={"login"} name={"Sign in"} />

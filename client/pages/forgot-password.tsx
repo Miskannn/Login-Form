@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { EmailInput, FormLayout, Layout, Main } from "../components";
+import { Button, EmailInput, FormLayout, Layout, Main } from "../components";
 import { forgotPassword } from "../helpers";
 import { AxiosResponse } from "axios";
 import { Title } from "../types";
@@ -39,11 +39,12 @@ const ForgotPassword = () => {
               {errorMessage}
             </h2>
           )}
-          <FormLayout userAuth={false} requestHandler={refreshPassword}>
+          <FormLayout>
             <EmailInput
               value={forgotPasswordEmail}
               onChange={setForgotPasswordEmail}
             />
+            <Button clickHandler={refreshPassword}>Get password</Button>
           </FormLayout>
           <br />
           <div className="flex justify-between">

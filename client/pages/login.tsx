@@ -6,12 +6,15 @@ import {
   FormLayout,
   Layout,
   Header,
+  Button,
 } from "../components";
-import { useState } from "react";
+import React, { useState } from "react";
 import { login } from "../helpers";
 import { Title } from "../types";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { ExclamationCircleIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -43,13 +46,20 @@ const LoginPage = () => {
       <Layout>
         <Header />
         <MainContainer title={title}>
-          <FormLayout userAuth onSubmit={(e) => signIn(e)} registration={false}>
+          <FormLayout onSubmit={(e) => signIn(e)}>
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
               className={"row-start-2"}
               onChange={setPassword}
               value={password}
             />
+            <Link href={"/forgot-password"}>
+              <a className="col-span-2 hover:text-gray-500">
+                <ExclamationCircleIcon className="h-6 w-6 ml-1 inline-block" />
+                Forgot password
+              </a>
+            </Link>
+            <Button clickHandler={signIn}>Log in</Button>
           </FormLayout>
         </MainContainer>
       </Layout>

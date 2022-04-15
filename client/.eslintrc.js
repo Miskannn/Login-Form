@@ -28,5 +28,6 @@ module.exports = {
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/require-await': 'off',
+    'prettier/prettier': 'off',
   },
 };
