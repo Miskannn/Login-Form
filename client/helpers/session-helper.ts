@@ -10,7 +10,7 @@ const COOKIES_MAX_AGE = process.env.COOKIES_MAX_AGE || 15000000; //in millisecon
 
 export const setSession = async (
   res: NextApiResponse,
-  userData
+  userData,
 ): Promise<void> => {
   const createdAt = Date.now();
   const obj = { userData, createdAt, maxAge: COOKIES_MAX_AGE };
@@ -23,7 +23,11 @@ export const getSession = async (req: NextApiRequest): Promise<Session> => {
 
   if (!token) return;
 
-  const session = await Iron.unseal(token, TOKEN_SECRET, Iron.defaults);
+  const session: Session = await Iron.unseal(
+    token,
+    TOKEN_SECRET,
+    Iron.defaults,
+  );
   const expiresAt = session.createdAt + session.maxAge * 1000;
 
   if (Date.now() > expiresAt) {

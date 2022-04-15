@@ -11,6 +11,7 @@ import { useState } from "react";
 import { login } from "../helpers";
 import { Title } from "../types";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -36,12 +37,19 @@ const LoginPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Login</title>
+      </Head>
       <Layout>
         <Header />
         <MainContainer title={title}>
           <FormLayout userAuth onSubmit={(e) => signIn(e)} registration={false}>
             <EmailInput onChange={setEmail} value={email} />
-            <PasswordInput onChange={setPassword} value={password} />
+            <PasswordInput
+              className={"row-start-2"}
+              onChange={setPassword}
+              value={password}
+            />
           </FormLayout>
         </MainContainer>
       </Layout>

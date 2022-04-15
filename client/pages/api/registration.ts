@@ -4,7 +4,7 @@ import { setSession } from "../../helpers";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const { email, password } = req.body;
   const candidate = await findByEmail(email);

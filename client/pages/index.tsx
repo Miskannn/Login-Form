@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { AuthContext } from "../context/Auth";
 import { getUserInfo, logout } from "../helpers";
+import Head from "next/head";
 
 const Dashboard = () => {
   const router = useRouter();
@@ -20,6 +21,9 @@ const Dashboard = () => {
 
   return (
     <>
+      <Head>
+        <title>Dashboard</title>
+      </Head>
       <Header className="mt-10" />
       <div className="px-5 text-center mt-10">
         <h1 className="text-3xl font-medium lg:text-4xl xl:text-5xl">
@@ -35,29 +39,9 @@ const Dashboard = () => {
             Log Out
           </Button>
         )}
-        {!userEmail && (
-          <div className="flex justify-center items-center flex-col">
-            <Button
-              clickHandler={() => router.push("/login")}
-              className={"mt-12"}
-            >
-              Log in
-            </Button>
-            <Button
-              clickHandler={() => router.push("/new-user")}
-              className={"mt-12"}
-            >
-              Registration
-            </Button>
-          </div>
-        )}
       </div>
     </>
   );
-};
-
-export const getServerSideProps = async (ctx) => {
-  return { props: {} };
 };
 
 export default Dashboard;

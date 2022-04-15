@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { ReactNode, ReactChild } from "react";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
-import { useRouter } from "next/router";
 import { Button } from "./Button";
 
 interface FormProps {
@@ -35,7 +34,7 @@ export const FormLayout: React.FC<FormProps> = ({
           {!registration && (
             <Link href={"/forgot-password"}>
               <a className="col-span-2 hover:text-gray-500">
-                <ExclamationCircleIcon className="h-6 w-6 ml-1 inline-block" />{" "}
+                <ExclamationCircleIcon className="h-6 w-6 ml-1 inline-block" />
                 Forgot password
               </a>
             </Link>

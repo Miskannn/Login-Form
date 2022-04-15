@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from "axios";
 
 export const logout = async (): Promise<void> => {
   const res = await axios.get("/api/logout");
-  if (window !== undefined && res.status === 200) {
+  if (res.status === 200) {
     await Router.push("/login");
   }
 };

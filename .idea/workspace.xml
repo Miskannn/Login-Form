@@ -2,10 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Implementing oauth2(pkce flow), added access code validation, added support for https, updated client part of application">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/FormLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/FormLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/LoginLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/CustomLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PasswordInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PasswordInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/context/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/context/Auth.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/helpers/auth-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/helpers/auth-helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/session-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/helpers/session-helper.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/_document.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/forgot-password.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/forgot-password.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/logout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/logout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/registration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/storage/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/storage/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/forgot-password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/forgot-password.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/new-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/new-user.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/server.js" afterDir="false" />
@@ -41,7 +58,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="273fY1MJAQwHJapBpl5RZZROVwE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -60,7 +77,9 @@
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/server/dist" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="D:\login\server\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -76,14 +95,14 @@
       <recent name="D:\login\server\src\secrets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\login\client" />
       <recent name="D:\login\client\pages\api\users\email" />
       <recent name="D:\login\client\pages\api" />
       <recent name="D:\login\client\pages\api\storage" />
       <recent name="D:\login\client\public" />
-      <recent name="D:\login\client\certificates" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.https">
+  <component name="RunManager" selected="npm.lint">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/client/package.json" />
       <command value="run" />
@@ -104,11 +123,11 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="prebuild" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/server/package.json" />
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/client/package.json" />
       <command value="run" />
       <scripts>
-        <script value="prebuild" />
+        <script value="lint" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -136,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.prod" />
         <item itemvalue="npm.https" />
         <item itemvalue="npm.build" />
-        <item itemvalue="npm.prod" />
         <item itemvalue="npm.start:dev" />
-        <item itemvalue="npm.prebuild" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +189,14 @@
       <workItem from="1649346543458" duration="7481000" />
       <workItem from="1649413301363" duration="53441000" />
       <workItem from="1649851530647" duration="14145000" />
-      <workItem from="1649868269644" duration="7134000" />
+      <workItem from="1649868269644" duration="9709000" />
+      <workItem from="1650020638389" duration="1974000" />
+      <workItem from="1650026619753" duration="1367000" />
+      <workItem from="1650028266787" duration="233000" />
+      <workItem from="1650028819916" duration="552000" />
+      <workItem from="1650029665984" duration="183000" />
+      <workItem from="1650030674726" duration="12789000" />
+      <workItem from="1650045285642" duration="611000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>

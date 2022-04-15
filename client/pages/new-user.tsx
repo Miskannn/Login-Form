@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
   EmailInput,
+  Footer,
   FormLayout,
   Header,
   Layout,
@@ -10,11 +11,13 @@ import {
 import { useRouter } from "next/router";
 import { registration } from "../helpers";
 import { Title } from "../types";
-import { LoginLink } from "../components/LoginLink";
+import { CustomLink } from "../components/CustomLink";
+import Head from "next/head";
 
 const NewUser = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string>("");
   const router = useRouter();
 
@@ -24,25 +27,47 @@ const NewUser = () => {
       email: email,
       password: password,
     };
-    try {
-      const res = await registration(requestBody);
-      if (res.status === 201) await router.push("/");
-    } catch (error) {
-      setErrorMessage(error.response.data.errorMessage as Title);
+    if (password === confirmPassword) {
+      try {
+        const res = await registration(requestBody);
+        if (res.status === 201) await router.push("/");
+      } catch (error) {
+        setErrorMessage(error.response.data.errorMessage as Title);
+      }
+    } else {
+      setErrorMessage("Please confirm password");
     }
   };
 
   return (
     <>
+      <Head>
+        <title>Registration</title>
+      </Head>
       <Layout>
         <Header />
         <Main title={errorMessage ? errorMessage : "Register"}>
-          <FormLayout userAuth registration onSubmit={register}>
+          <FormLayout
+            userAuth
+            registration
+            onSubmit={(e: MouseEvent) => register(e)}
+          >
             <EmailInput onChange={setEmail} value={email} />
-            <PasswordInput onChange={setPassword} value={password} />
-            <LoginLink />
+            <PasswordInput
+              className={"row-start-2"}
+              onChange={setPassword}
+              value={password}
+            />
+            <PasswordInput
+              className={"row-start-3"}
+              onChange={setConfirmPassword}
+              value={confirmPassword}
+              placeholder={"Confirm password"}
+            />
+            <CustomLink name="Login" href="login" />
           </FormLayout>
         </Main>
+        <Footer href={"login"} name={"Sign in"} />
       </Layout>
     </>
   );

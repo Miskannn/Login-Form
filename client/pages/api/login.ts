@@ -5,7 +5,7 @@ import * as bcrypt from "bcrypt";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   if (req.method === "POST") {
     const { password, email } = req.body;
@@ -13,7 +13,7 @@ export default async function handler(
     if (candidate) {
       const passwordCompares = await bcrypt.compare(
         password,
-        candidate.password
+        candidate.password,
       );
       if (candidate.email === email && passwordCompares) {
         await setSession(res, {

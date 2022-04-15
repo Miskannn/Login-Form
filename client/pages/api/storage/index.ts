@@ -7,9 +7,9 @@ global[store] = global[store] || new Map<string, string>();
 
 export const createUser = async (
   email: string,
-  password: string
+  password: string,
 ): Promise<User> => {
-  const hashedPassword = bcrypt.hashSync(password, 5);
+  const hashedPassword = await bcrypt.hash(password, 5);
   global[store].set(email, hashedPassword);
   return { email, password };
 };

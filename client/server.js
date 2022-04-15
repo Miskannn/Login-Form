@@ -22,7 +22,6 @@ const enableHelmet = helmet({
       'img-src': [ "'self'", 'data:' ],
       'object-src': [ "'none'" ],
       'script-src': process.env.NODE_ENV === "development" ? [ "'self'", "'unsafe-eval'" ] : ["'self'"],
-      'script-src-attr': [ "'none'" ],
       'style-src': [ "'self'", 'https:', "'unsafe-inline'" ],
       'upgrade-insecure-requests': [],
     }
@@ -42,11 +41,10 @@ app.prepare().then(() => {
         res.end(
           "Helmet failed for some unexpected reason. Was it configured correctly?"
         );
-        return;
       }
-      const parsedUrl = parse(req.url, true);
-      handle(req, res, parsedUrl);
     });
+    const parsedUrl = parse(req.url, true);
+    handle(req, res, parsedUrl);
   }).listen(3000, (err) => {
     if (err) throw err;
     console.log("Server started on https://localhost:3000");

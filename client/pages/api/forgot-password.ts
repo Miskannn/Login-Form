@@ -3,7 +3,7 @@ import { createNewPassword, findByEmail } from "./storage";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   if (req.method === "PUT") {
     const { email } = req.body;
