@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import {
   Button,
   EmailInput,
   Footer,
   FormLayout,
   Header,
-  Layout,
-  Main,
-  PasswordInput,
+  Layout, Main as MainContainer,
+  PasswordInput
 } from "../components";
 import { useRouter } from "next/router";
-import { registration } from "../helpers";
-import { Title } from "../types";
+import { errorLogger, registration } from "../helpers";
 import { CustomLink } from "../components/CustomLink";
 import Head from "next/head";
+import axios, { AxiosError } from "axios";
+
 
 const NewUser = () => {
   const [email, setEmail] = useState<string>("");
@@ -22,7 +22,7 @@ const NewUser = () => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const router = useRouter();
 
-  const register = async (e) => {
+  const register = async (e: MouseEvent | FormEvent): Promise<void> => {
     e.preventDefault();
     const requestBody = {
       email: email,
@@ -32,8 +32,11 @@ const NewUser = () => {
       try {
         const res = await registration(requestBody);
         if (res.status === 201) await router.push("/");
-      } catch (error) {
-        setErrorMessage(error.response.data.errorMessage as Title);
+      } catch (error: unknown) {
+        axios.isAxiosError(error)
+          ? setErrorMessage((error.response.data as AxiosError)?.message)
+          : setErrorMessage("Something went wrong")
+        errorLogger(error);
       }
     } else {
       setErrorMessage("Please confirm password");
@@ -47,28 +50,26 @@ const NewUser = () => {
       </Head>
       <Layout>
         <Header />
-        <Main title={errorMessage ? errorMessage : "Register"}>
-          <FormLayout
-            onSubmit={register}
-          >
+        <MainContainer title={errorMessage ? errorMessage : "Registration"}>
+          <FormLayout onSubmit={register}>
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
-              className={"row-start-2"}
+              className={["row-start-2"]}
               onChange={setPassword}
               value={password}
             />
             <PasswordInput
-              className={"row-start-3"}
               onChange={setConfirmPassword}
               value={confirmPassword}
-              placeholder={"Confirm password"}
+              className={["row-start-3"]}
+              placeholder="Confirm password"
             />
-            <CustomLink name="Login" href="login" />
-            <Button clickHandler={register}>Registration</Button>
+            <CustomLink href={'login'} name={"Login"} />
+            <Button isError={!!errorMessage} clickHandler={register}>Registration</Button>
           </FormLayout>
-        </Main>
-        <Footer href={"login"} name={"Sign in"} />
+        </MainContainer>
       </Layout>
+      <Footer href={'login'} name={"Sign in"}/>
     </>
   );
 };

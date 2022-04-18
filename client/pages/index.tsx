@@ -15,7 +15,13 @@ const Dashboard = () => {
 
   useEffect(() => {
     getUserInfo()
-      .then((email) => setUserEmail(email))
+      .then((email) => {
+        if(typeof email === "string"){
+          setUserEmail(email);
+        } else {
+          throw new Error("User not authorized");
+        }
+      })
       .catch(() => router.push("/login"));
   }, []);
 
@@ -24,7 +30,7 @@ const Dashboard = () => {
       <Head>
         <title>Dashboard</title>
       </Head>
-      <Header className="mt-10" />
+      <Header className={["mt-10"]} />
       <div className="px-5 text-center mt-10">
         <h1 className="text-3xl font-medium lg:text-4xl xl:text-5xl">
           Welcome!
@@ -35,7 +41,7 @@ const Dashboard = () => {
           </h2>
         )}
         {userEmail && (
-          <Button className="mt-5" clickHandler={logoutHandler}>
+          <Button className={["mt-5"]} clickHandler={logoutHandler}>
             Log Out
           </Button>
         )}

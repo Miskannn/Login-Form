@@ -8,21 +8,21 @@ import {
   Header,
   Button,
 } from "../components";
-import React, { useState } from "react";
-import { login } from "../helpers";
-import { Title } from "../types";
+import React, { FormEvent, useState } from "react";
+import { errorLogger, login } from "../helpers";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import axios, { AxiosError } from "axios";
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [title, setTitle] = useState<Title>("Welcome");
+  const [title, setTitle] = useState("Welcome");
   const router = useRouter();
 
-  const signIn = async (e) => {
+  const signIn = async (e: FormEvent) => {
     e.preventDefault();
     setEmail("");
     setPassword("");
@@ -33,8 +33,11 @@ const LoginPage = () => {
     try {
       const res = await login(requestBody);
       if (res.status === 200) await router.push("/");
-    } catch (error) {
-      setTitle(error.response.data.errorMessage);
+    } catch (error: unknown) {
+      axios.isAxiosError(error)
+        ? setTitle((error.response.data as AxiosError)?.message)
+        : setTitle("Something went wrong")
+      errorLogger(error);
     }
   };
 
@@ -49,7 +52,7 @@ const LoginPage = () => {
           <FormLayout onSubmit={signIn}>
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
-              className={"row-start-2"}
+              className={["row-start-2"]}
               onChange={setPassword}
               value={password}
             />
@@ -59,10 +62,13 @@ const LoginPage = () => {
                 Forgot password
               </a>
             </Link>
-            <Button clickHandler={signIn}>Log in</Button>
+            <Button isError={!!title} clickHandler={signIn}>Log in</Button>
           </FormLayout>
         </MainContainer>
       </Layout>
+      <br />
+      <br />
+      <br />
       <Footer />
     </>
   );

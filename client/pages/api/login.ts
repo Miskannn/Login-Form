@@ -6,7 +6,7 @@ import * as bcrypt from "bcrypt";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
-) {
+): Promise<void> {
   if (req.method === "POST") {
     const { password, email } = req.body;
     const candidate = await findByEmail(email);
@@ -21,10 +21,10 @@ export default async function handler(
         });
         res.status(200).json({});
       } else {
-        res.status(401).json({ errorMessage: "Wrong password" });
+        res.status(401).json({ message: "Wrong password" });
       }
     } else {
-      res.status(401).json({ errorMessage: "Wrong email" });
+      res.status(401).json({ message: "Wrong email" });
     }
   }
 }

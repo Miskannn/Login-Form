@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
-export const AuthContext = React.createContext(null);
+interface AuthContextInterface{
+  userEmail: string;
+  setUserEmail: Dispatch<SetStateAction<string>>;
+}
+
+export const AuthContext = React.createContext<AuthContextInterface>(null);
 
 const AuthProvider = ({ children }) => {
   const [userEmail, setUserEmail] = useState<string>("");

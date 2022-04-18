@@ -2,7 +2,7 @@ import React from "react";
 import { CheckIcon, UserIcon, XIcon } from "@heroicons/react/outline";
 
 interface EmailInputProps {
-  onChange?: (e: any) => void;
+  onChange?: (e: string) => void;
   value?: string;
 }
 

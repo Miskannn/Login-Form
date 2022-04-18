@@ -25,5 +25,5 @@ export const getUserInfo = async (): Promise<{ email: string } | void> => {
   }
 };
 
-export const forgotPassword = async (body: { email: string }) =>
-  await axios.put("/api/forgot-password", body);
+export const forgotPassword = async (body: { email: string }): Promise<AxiosResponse> =>
+   await axios.put("/api/forgot-password", body);
