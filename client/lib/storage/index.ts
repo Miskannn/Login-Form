@@ -1,4 +1,4 @@
-import { User } from "../../../types";
+import { User } from "../../types";
 import * as bcrypt from "bcrypt";
 import * as crypto from "crypto";
 
@@ -21,10 +21,9 @@ export const createUser = async (
 };
 
 export const findByEmail = async (email: string): Promise<User | undefined> => {
-  const candidate = global[store].has(email);
-  if (candidate) {
-    const candidatePassword = global[store].get(email);
-    return { email: email, password: candidatePassword };
+  const password = global[store].get(email);
+  if (password) {
+    return { email, password };
   }
 };
 

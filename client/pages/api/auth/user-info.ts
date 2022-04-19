@@ -1,4 +1,4 @@
-import { getSession } from "../../helpers";
+import { getSession } from "../../../utils";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -7,9 +7,12 @@ export default async function handler(
 ): Promise<void> {
   try {
     const session = await getSession(req);
-    res.status(200).json({
-      email: session.userData.email,
-    });
+    if(session){
+      res.status(200).json({
+        email: session.userData.email,
+      });
+    }
+    res.status(401).end("Auth token isn`t valid, please log in");
   } catch {
     res.status(401).end("Auth token isn`t valid, please log in");
   }

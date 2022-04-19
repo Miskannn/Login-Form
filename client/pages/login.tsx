@@ -9,7 +9,7 @@ import {
   Button,
 } from "../components";
 import React, { FormEvent, useState } from "react";
-import { errorLogger, login } from "../helpers";
+import { login } from "../api/auth";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { ExclamationCircleIcon } from "@heroicons/react/outline";
@@ -32,12 +32,12 @@ const LoginPage = () => {
     };
     try {
       const res = await login(requestBody);
-      if (res.status === 200) await router.push("/");
+      if (res.status === 200) return router.push("/");
     } catch (error: unknown) {
       axios.isAxiosError(error)
-        ? setTitle((error.response.data as AxiosError)?.message)
+        ? setTitle((error?.response?.data as AxiosError)?.message)
         : setTitle("Something went wrong")
-      errorLogger(error);
+      console.error(error);
     }
   };
 

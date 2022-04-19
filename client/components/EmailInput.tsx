@@ -23,7 +23,7 @@ export const EmailInput: React.FC<EmailInputProps> = ({ onChange, value }) => {
             focus:text-gray-800
             focus:placeholder:text-gray-800
             focus:font-medium"
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange?.(e.target?.value)}
         value={value}
       />
 

@@ -1,12 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createNewPassword, findByEmail } from "./storage";
-import { setSession } from "../../helpers";
+import { createNewPassword, findByEmail } from "../../lib/storage";
+import { setSession } from "../../utils";
+import { changeInfoSchema } from "../../schemas";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  if (req.method === "PUT") {
+  const checkBodyValidity = await changeInfoSchema.isValid(req.body)
+  if (req.method === "PUT" && checkBodyValidity) {
     const { email } = req.body;
     try {
       const candidate = await findByEmail(email);
@@ -18,9 +20,9 @@ export default async function handler(
         });
         res.status(200).json({ password: password });
       }
-      res.status(401).json({ message: "User don`t authorized" });
     } catch {
-      res.status(401).json({ message: "User don`t authorized" });
+      //intentionally empty
     }
+    res.status(401).json({ message: "Not authorized" });
   }
 }

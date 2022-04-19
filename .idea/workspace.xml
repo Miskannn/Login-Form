@@ -3,7 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/CustomLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/CustomLink.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/EmailInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/EmailInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/FormLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/FormLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/context/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/context/Auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/auth-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/cookies-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/cookies.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/errors-helper.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/session-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/session.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/helpers/tests/test.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tests/test.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/forgot-password.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/forgot-password.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/logout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/logout.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/registration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/storage/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/storage/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/api/user-info.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/auth/user-info.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pages/forgot-password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/forgot-password.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/new-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/new-user.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/types/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types/session.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +62,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="273fY1MJAQwHJapBpl5RZZROVwE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -74,15 +100,15 @@
       <recent name="D:\login\server\src\secrets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kovtu\Desktop\NextNestAuth\client\helpers\tests" />
-      <recent name="D:\login\client" />
-      <recent name="D:\login\client\pages\api\users\email" />
-      <recent name="D:\login\client\pages\api" />
-      <recent name="D:\login\client\pages\api\storage" />
+      <recent name="C:\Users\kovtu\Desktop\NextNestAuth\client\pages\api\auth" />
+      <recent name="C:\Users\kovtu\Desktop\NextNestAuth\client\lib" />
+      <recent name="C:\Users\kovtu\Desktop\NextNestAuth\client" />
+      <recent name="C:\Users\kovtu\Desktop\NextNestAuth\client\utils" />
+      <recent name="C:\Users\kovtu\Desktop\NextNestAuth\client\api" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Promises test.Fourth variant, optimal, chain with params, equal doSomething().then(function(res) {return doSomethingElse(res)})">
-    <configuration name="Promises test.First variant,should be chain in sequence with no params pass" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.Async await variant.Fourth variant">
+    <configuration name="Async await variant.First variant" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/client/node_modules/jest" />
@@ -91,12 +117,12 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/client/helpers/tests/test.test.js" />
       <test-names>
-        <test-name value="Promises test" />
-        <test-name value="First variant,should be chain in sequence with no params pass" />
+        <test-name value="Async await variant" />
+        <test-name value="First variant" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Promises test.Fourth variant, optimal" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Async await variant.Fourth variant" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/client/node_modules/jest" />
@@ -105,12 +131,12 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/client/helpers/tests/test.test.js" />
       <test-names>
-        <test-name value="Promises test" />
-        <test-name value="Fourth variant, optimal" />
+        <test-name value="Async await variant" />
+        <test-name value="Fourth variant" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Promises test.Fourth variant, optimal, chain with params, equal doSomething().then(function(res) {return doSomethingElse(res)})" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Async await variant.Second variant" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/client/node_modules/jest" />
@@ -119,12 +145,12 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/client/helpers/tests/test.test.js" />
       <test-names>
-        <test-name value="Promises test" />
-        <test-name value="Fourth variant, optimal, chain with params, equal doSomething().then(function(res) {return doSomethingElse(res)})" />
+        <test-name value="Async await variant" />
+        <test-name value="Second variant" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Promises test.Second variant,should be executed in sequence, with no parameter passing" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Async await variant.Third variant" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/client/node_modules/jest" />
@@ -133,8 +159,8 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/client/helpers/tests/test.test.js" />
       <test-names>
-        <test-name value="Promises test" />
-        <test-name value="Second variant,should be executed in sequence, with no parameter passing" />
+        <test-name value="Async await variant" />
+        <test-name value="Third variant" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -154,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.Promises test.Fourth variant, optimal, chain with params, equal doSomething().then(function(res) {return doSomethingElse(res)})" />
+        <item itemvalue="Jest.Async await variant.Fourth variant" />
+        <item itemvalue="Jest.Async await variant.Third variant" />
         <item itemvalue="Jest.Promises test.Third variant, first promise resolves, second not resolves, bugs on each step, and most unexpected variant" />
-        <item itemvalue="Jest.Promises test.Second variant,should be executed in sequence, with no parameter passing" />
-        <item itemvalue="Jest.Promises test.First variant,should be chain in sequence with no params pass" />
-        <item itemvalue="Jest.Promises test.Fourth variant, optimal" />
+        <item itemvalue="Jest.Async await variant.Second variant" />
+        <item itemvalue="Jest.Async await variant.First variant" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +226,8 @@
       <workItem from="1650214359874" duration="1394000" />
       <workItem from="1650276247970" duration="8718000" />
       <workItem from="1650287736571" duration="15663000" />
-      <workItem from="1650369864289" duration="18702000" />
+      <workItem from="1650369864289" duration="29981000" />
+      <workItem from="1650402486033" duration="2755000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>

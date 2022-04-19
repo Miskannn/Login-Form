@@ -2,7 +2,6 @@ import React from "react";
 import clsx from "clsx";
 
 interface LayoutProps {
-  children: React.ReactNode | React.ReactChild;
   className?: string[];
 }
 

@@ -1,12 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createUser, findByEmail } from "./storage";
-import { setSession } from "../../helpers";
+import { createUser, findByEmail } from "../../lib/storage";
+import { setSession } from "../../utils";
+import { authSchema } from "../../schemas";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  if(req.method === "POST"){
+  const checkBodyValidity = await authSchema.isValid(req.body)
+  if(req.method === "POST" && checkBodyValidity){
     const { email, password } = req.body;
     const candidate = await findByEmail(email);
     if (candidate) {

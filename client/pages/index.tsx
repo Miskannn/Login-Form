@@ -1,8 +1,8 @@
 import { Button, Header } from "../components";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, } from "react";
 import { useRouter } from "next/router";
 import { AuthContext } from "../context/Auth";
-import { getUserInfo, logout } from "../helpers";
+import { getUserInfo, logout } from "../api/auth";
 import Head from "next/head";
 
 const Dashboard = () => {
@@ -10,23 +10,24 @@ const Dashboard = () => {
   const { userEmail, setUserEmail } = useContext(AuthContext);
 
   const logoutHandler = async () => {
-    await logout();
+    const res = await logout();
+    if (res.status === 200) return router.push("/login");
   };
 
-  useEffect(() => {
-    getUserInfo()
-      .then((email) => {
-        if(typeof email === "string"){
-          setUserEmail(email);
-        } else {
-          throw new Error("User not authorized");
-        }
-      })
-      .catch(() => router.push("/login"));
-
-    return () => {
-      setUserEmail("")
+  const fetchUserInfo = async () => {
+    try{
+      const res = await getUserInfo();
+      typeof res === "string" ? setUserEmail(res) : null;
+    }catch{
+      await router.push("/login")
     }
+    return async () => {
+      setUserEmail("");
+    }
+  }
+
+  useEffect(() => {
+    void fetchUserInfo()
   }, []);
 
   return (

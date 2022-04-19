@@ -1,17 +1,14 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 
-interface AuthContextInterface{
+type AuthContextType = {
   userEmail: string;
   setUserEmail: Dispatch<SetStateAction<string>>;
 }
 
-interface AuthProviderProps{
-  children: React.ReactNode | React.ReactChild;
-}
 
-export const AuthContext = React.createContext<AuthContextInterface>(null);
+export const AuthContext = React.createContext<AuthContextType>({userEmail: "", setUserEmail: () => console.warn("setUserEmail is not defined")});
 
-const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+const AuthProvider: React.FC = ({ children }) => {
   const [userEmail, setUserEmail] = useState<string>("");
 
   return (

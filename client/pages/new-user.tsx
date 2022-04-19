@@ -9,10 +9,11 @@ import {
   PasswordInput
 } from "../components";
 import { useRouter } from "next/router";
-import { errorLogger, registration } from "../helpers";
+import { registration } from "../api/auth";
 import { CustomLink } from "../components/CustomLink";
 import Head from "next/head";
 import axios, { AxiosError } from "axios";
+import { ArrowLeftIcon } from "@heroicons/react/solid";
 
 
 const NewUser = () => {
@@ -34,9 +35,9 @@ const NewUser = () => {
         if (res.status === 201) await router.push("/");
       } catch (error: unknown) {
         axios.isAxiosError(error)
-          ? setErrorMessage((error.response.data as AxiosError)?.message)
+          ? setErrorMessage((error?.response?.data as AxiosError)?.message)
           : setErrorMessage("Something went wrong")
-        errorLogger(error);
+        console.error(error);
       }
     } else {
       setErrorMessage("Please confirm password");
@@ -63,7 +64,9 @@ const NewUser = () => {
               className={["row-start-3"]}
               placeholder="Confirm password"
             />
-            <CustomLink href={'login'} name={"Login"} left/>
+            <CustomLink href={'login'} name={"Login"}>
+              <ArrowLeftIcon className={"w-4 h-4 inline-block mr-2 mb-1"} />
+            </CustomLink>
             <Button isError={!!errorMessage}>Registration</Button>
           </FormLayout>
         </MainContainer>

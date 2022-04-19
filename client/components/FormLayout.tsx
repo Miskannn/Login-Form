@@ -1,7 +1,6 @@
-import React, { ReactNode, ReactChild } from "react";
+import React from "react";
 
 interface FormProps {
-  children?: ReactNode | ReactChild;
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 

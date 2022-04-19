@@ -32,3 +32,38 @@ describe("Promises test", () => {
     expect(result).resolves.toBe(30)
   })
 })
+
+
+describe("Async await variant", () => {
+  it("First variant", async () => {
+    const expectFun = async () => {
+      const doSomethingResult = await doSomething();
+      return await doSomethingElse();
+    }
+    expect(await expectFun()).toBe(NaN)
+  })
+
+  it("Second variant", async () => {
+    const expectFun = async () => {
+      const doSomethingResult = await doSomething();
+      await doSomethingElse();
+    }
+    expect(await expectFun()).toBe(undefined)
+  })
+
+  it("Third variant",async () => {
+    const expectFun = async () => {
+      const doSomethingResult = doSomething();
+      await doSomethingElse();
+    }
+    expect(await expectFun()).toBe(undefined)
+  })
+
+  it("Fourth variant", async () => {
+    const expectFun = async () => {
+      const doSomethingResult = await doSomething();
+      return await doSomethingElse(doSomethingResult);
+    }
+    expect(await expectFun()).toBe(30)
+  })
+})

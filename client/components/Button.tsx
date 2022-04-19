@@ -2,7 +2,6 @@ import React, { MouseEventHandler } from "react";
 import clsx from "clsx";
 
 interface ButtonProps {
-  children: React.ReactChild | React.ReactNode;
   className?: string[];
   clickHandler?: MouseEventHandler<HTMLButtonElement>;
   isError?: boolean;

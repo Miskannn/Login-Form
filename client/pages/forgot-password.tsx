@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Button, EmailInput, Footer, FormLayout, Header, Layout, Main } from "../components";
-import { errorLogger, forgotPassword } from "../helpers";
+import { forgotPassword } from "../api/auth";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import Head from "next/head";
 import { CustomLink } from "../components/CustomLink";
+import { ArrowLeftIcon } from "@heroicons/react/outline";
 
 const ForgotPassword = () => {
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState<string>("");
@@ -20,9 +21,9 @@ const ForgotPassword = () => {
       setErrorMessage(null);
     } catch (error: unknown) {
       axios.isAxiosError(error)
-        ? setErrorMessage((error.response.data as AxiosError)?.message)
+        ? setErrorMessage((error?.response?.data as AxiosError)?.message)
         : setErrorMessage("Something went wrong")
-      errorLogger(error);
+      console.error(error);
     }
   };
 
@@ -49,7 +50,9 @@ const ForgotPassword = () => {
               onChange={setForgotPasswordEmail}
               value={forgotPasswordEmail}
             />
-            <CustomLink href={"login"} name={"Log in"} left/>
+            <CustomLink href={"login"} name={"Log in"}>
+              <ArrowLeftIcon className={"w-4 h-4 inline-block mr-2 mb-1"} />
+            </CustomLink>
             <Button isError={!!errorMessage}>
               Get password
             </Button>

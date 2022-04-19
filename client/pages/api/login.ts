@@ -1,13 +1,15 @@
-import { setSession } from "../../helpers";
-import { findByEmail } from "./storage";
+import { setSession } from "../../utils";
+import { findByEmail } from "../../lib/storage";
 import { NextApiRequest, NextApiResponse } from "next";
 import * as bcrypt from "bcrypt";
+import { authSchema } from "../../schemas";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ): Promise<void> {
-  if (req.method === "POST") {
+  const checkBodyValidity = await authSchema.isValid(req.body)
+  if (req.method === "POST" && checkBodyValidity) {
     const { password, email } = req.body;
     const candidate = await findByEmail(email);
     if (candidate) {
@@ -15,7 +17,7 @@ export default async function handler(
         password,
         candidate.password,
       );
-      if (candidate.email === email && passwordCompares) {
+      if (passwordCompares) {
         await setSession(res, {
           email: candidate.email,
         });

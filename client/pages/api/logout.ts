@@ -1,4 +1,4 @@
-import { deleteTokenCookie } from "../../helpers";
+import { deleteTokenCookie } from "../../utils";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function logout(

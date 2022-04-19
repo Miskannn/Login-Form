@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Iron from "@hapi/iron";
-import { getTokenCookie, setTokenCookie } from "./cookies-helper";
+import { getTokenCookie, setTokenCookie } from "./cookies";
 import { Session } from "../types";
 
 const TOKEN_SECRET =
@@ -18,7 +18,7 @@ export const setSession = async (
   setTokenCookie(res, token);
 };
 
-export const getSession = async (req: NextApiRequest): Promise<Session> => {
+export const getSession = async (req: NextApiRequest): Promise<Session | undefined> => {
   const token = getTokenCookie(req);
 
   if (!token) return;

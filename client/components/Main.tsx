@@ -2,7 +2,6 @@ import React from "react";
 import clsx from "clsx";
 
 interface MainLayoutProps {
-  children: React.ReactNode | React.ReactChild;
   title: string;
   className?: string[];
 }
