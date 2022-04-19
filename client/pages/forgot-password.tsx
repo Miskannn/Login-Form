@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, EmailInput, FormLayout, Header, Layout, Main } from "../components";
+import { Button, EmailInput, Footer, FormLayout, Header, Layout, Main } from "../components";
 import { errorLogger, forgotPassword } from "../helpers";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import Head from "next/head";
@@ -56,6 +56,11 @@ const ForgotPassword = () => {
           </FormLayout>
         </Main>
       </Layout>
+      <br />
+      <br />
+      <br />
+      <br />
+      <Footer />
     </>
   );
 };
