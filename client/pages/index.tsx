@@ -23,6 +23,10 @@ const Dashboard = () => {
         }
       })
       .catch(() => router.push("/login"));
+
+    return () => {
+      setUserEmail("")
+    }
   }, []);
 
   return (

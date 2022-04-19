@@ -10,14 +10,14 @@ import clsx from "clsx";
 interface PasswordInputProps {
   onChange: (e: string) => void;
   value: string;
-  className: string[];
+  className?: string[];
   placeholder?: string;
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = ({
   onChange,
   value,
-  className= [],
+  className= ["row-start-2"],
   placeholder = "Password",
 }) => {
   const [type, setType] = useState<"text" | "password">("password");

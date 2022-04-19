@@ -6,7 +6,7 @@ const env = process.env.NODE_ENV || "production";
 
 export const setTokenCookie = (res: NextApiResponse, token: string): void => {
   const cookie = serialize(tokenName, token, {
-    maxAge: Number(process.env.COOKIES_MAX_AGE) || 15000000,
+    maxAge: Number(process.env.COOKIES_MAX_AGE) || 900000,
     httpOnly: env !== "development",
     secure: true,
     path: "/",

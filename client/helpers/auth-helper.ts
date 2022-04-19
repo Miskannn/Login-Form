@@ -11,12 +11,12 @@ export const logout = async (): Promise<void> => {
 export const login = async (body: {
   email: string;
   password: string;
-}): Promise<AxiosResponse> => await axios.post("/api/login", body);
+}): Promise<AxiosResponse> => axios.post("/api/login", body);
 
 export const registration = async (body: {
   email: string;
   password: string;
-}): Promise<AxiosResponse> => await axios.post("/api/registration", body);
+}): Promise<AxiosResponse> => axios.post("/api/registration", body);
 
 export const getUserInfo = async (): Promise<{ email: string } | void> => {
   const res = await axios.get("/api/user-info");
@@ -25,5 +25,4 @@ export const getUserInfo = async (): Promise<{ email: string } | void> => {
   }
 };
 
-export const forgotPassword = async (body: { email: string }): Promise<AxiosResponse> =>
-   await axios.put("/api/forgot-password", body);
+export const forgotPassword = async (body: { email: string }): Promise<AxiosResponse> => axios.put("/api/forgot-password", body);

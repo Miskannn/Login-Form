@@ -52,7 +52,6 @@ const LoginPage = () => {
           <FormLayout onSubmit={signIn}>
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
-              className={["row-start-2"]}
               onChange={setPassword}
               value={password}
             />
@@ -62,7 +61,7 @@ const LoginPage = () => {
                 Forgot password
               </a>
             </Link>
-            <Button isError={!!title} clickHandler={signIn}>Log in</Button>
+            <Button isError={title !== "Welcome"}>Log in</Button>
           </FormLayout>
         </MainContainer>
       </Layout>

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Button, EmailInput, FormLayout, Header, Layout, Main } from "../components";
 import { errorLogger, forgotPassword } from "../helpers";
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { CustomLink } from "../components/CustomLink";
 import Head from "next/head";
+import { CustomLink } from "../components/CustomLink";
 
 const ForgotPassword = () => {
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState<string>("");
@@ -33,29 +33,27 @@ const ForgotPassword = () => {
       </Head>
       <Layout className={["mt-10"]}>
         <Header />
-        <Main title={"Forgot password"}>
+        <Main title={"Password recovery"}>
           {newPassword && (
-            <h2 className="text-lg tracking-tight lg:tracking-normal font-semibold mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-5xl">
+            <h2 className="tracking-tight lg:tracking-normal font-semibold mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-3xl">
               Your password is {newPassword}
             </h2>
           )}
-          {errorMessage && (
-            <h2 className="text-lg tracking-tight lg:tracking-normal font-semibold mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-5xl">
+          {errorMessage && !newPassword && (
+            <h2 className="tracking-tight lg:tracking-normal font-semibold mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-3xl">
               {errorMessage}
             </h2>
           )}
           <FormLayout onSubmit={refreshPassword}>
             <EmailInput
-              value={forgotPasswordEmail}
               onChange={setForgotPasswordEmail}
+              value={forgotPasswordEmail}
             />
-            <Button isError={!!errorMessage} clickHandler={refreshPassword}>Get password</Button>
+            <CustomLink href={"login"} name={"Log in"} left/>
+            <Button isError={!!errorMessage}>
+              Get password
+            </Button>
           </FormLayout>
-          <br />
-          <div className="flex justify-between">
-            <CustomLink name="Login" href={"login"} />
-            <CustomLink name="Registration" href={"new-user"} />
-          </div>
         </Main>
       </Layout>
     </>

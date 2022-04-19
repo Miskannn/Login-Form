@@ -54,7 +54,6 @@ const NewUser = () => {
           <FormLayout onSubmit={register}>
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
-              className={["row-start-2"]}
               onChange={setPassword}
               value={password}
             />
@@ -64,8 +63,8 @@ const NewUser = () => {
               className={["row-start-3"]}
               placeholder="Confirm password"
             />
-            <CustomLink href={'login'} name={"Login"} />
-            <Button isError={!!errorMessage} clickHandler={register}>Registration</Button>
+            <CustomLink href={'login'} name={"Login"} left/>
+            <Button isError={!!errorMessage}>Registration</Button>
           </FormLayout>
         </MainContainer>
       </Layout>
