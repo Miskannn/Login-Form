@@ -5,31 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/CustomLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/CustomLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/EmailInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/EmailInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/FormLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/FormLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/context/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/context/Auth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/helpers/auth-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/helpers/cookies-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/cookies.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/helpers/errors-helper.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/helpers/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/helpers/session-helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/session.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/helpers/tests/test.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tests/test.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/forgot-password.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/forgot-password.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/logout.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/logout.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/registration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/storage/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/lib/storage/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/user-info.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/auth/user-info.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/forgot-password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/forgot-password.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/new-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/new-user.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/types/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types/session.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/PasswordInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/PasswordInput.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +205,7 @@
       <workItem from="1650276247970" duration="8718000" />
       <workItem from="1650287736571" duration="15663000" />
       <workItem from="1650369864289" duration="29981000" />
-      <workItem from="1650402486033" duration="2755000" />
+      <workItem from="1650402486033" duration="6081000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>
