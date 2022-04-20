@@ -70,8 +70,8 @@ const NewUser = () => {
             <Button isError={!!errorMessage}>Registration</Button>
           </FormLayout>
         </MainContainer>
+        <Footer href={'login'} name={"Sign in"}/>
       </Layout>
-      <Footer href={'login'} name={"Sign in"}/>
     </>
   );
 };

@@ -65,9 +65,6 @@ const LoginPage = () => {
           </FormLayout>
         </MainContainer>
       </Layout>
-      <br />
-      <br />
-      <br />
       <Footer />
     </>
   );
