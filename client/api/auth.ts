@@ -8,7 +8,7 @@ export const logout = async (): Promise<AxiosResponse> =>
 export const login = async (body: {
   email: string;
   password: string;
-}): Promise<AxiosResponse> => await axios.post("/api/login", body);
+}): Promise<AxiosResponse> => axios.post("/api/login", body);
 
 export const registration = async (body: {
   email: string;

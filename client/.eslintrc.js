@@ -5,7 +5,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint/eslint-plugin'],
-  ignorePatterns: ['.eslintrc.js'],
+  ignorePatterns: ['.eslintrc.js', 'tailwind.config.js', 'server.js', 'postcss.config.js', 'tests/test.test.js'],
   extends: [
     "next/core-web-vitals",
     'eslint:recommended',

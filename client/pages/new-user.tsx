@@ -61,7 +61,7 @@ const NewUser = () => {
             <PasswordInput
               onChange={setConfirmPassword}
               value={confirmPassword}
-              className={["row-start-3"]}
+              className={"row-start-3"}
               placeholder="Confirm password"
             />
             <CustomLink href={'login'} name={"Login"}>

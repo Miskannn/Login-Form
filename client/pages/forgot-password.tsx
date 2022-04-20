@@ -32,7 +32,7 @@ const ForgotPassword = () => {
       <Head>
         <title>Forgot password</title>
       </Head>
-      <Layout className={["mt-20"]}>
+      <Layout className={"mt-20"}>
         <Header />
         <Main title={"Password recovery"}>
           {newPassword && (
@@ -45,7 +45,7 @@ const ForgotPassword = () => {
               {errorMessage}
             </h2>
           )}
-          <FormLayout onSubmit={refreshPassword} className={["mt-10"]}>
+          <FormLayout onSubmit={refreshPassword} className={"mt-10"}>
             <EmailInput
               onChange={setForgotPasswordEmail}
               value={forgotPasswordEmail}
