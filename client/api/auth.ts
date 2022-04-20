@@ -1,4 +1,3 @@
-import Router from "next/router";
 import axios, { AxiosResponse } from "axios";
 
 export const logout = async (): Promise<AxiosResponse> =>
