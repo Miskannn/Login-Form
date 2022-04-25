@@ -1,5 +1,5 @@
 import { setSession } from "../../utils";
-import { findByEmail } from "../../lib/storage";
+import { StorageService } from "../../services";
 import { NextApiRequest, NextApiResponse } from "next";
 import * as bcrypt from "bcrypt";
 import { authSchema } from "../../schemas";
@@ -11,22 +11,22 @@ export default async function handler(
   const checkBodyValidity = await authSchema.isValid(req.body)
   if (req.method === "POST" && checkBodyValidity) {
     const { password, email } = req.body;
-    const candidate = await findByEmail(email);
+    const candidate = await StorageService.findByEmail(email);
     if (candidate) {
       const passwordCompares = await bcrypt.compare(
         password,
         candidate.password,
       );
       if (passwordCompares) {
-        await setSession(res, {
+        const cookie = await setSession( {
           email: candidate.email,
         });
-        res.status(200).json({});
+        return res.setHeader("Set-Cookie", cookie).status(200).json({});
       } else {
-        res.status(401).json({ message: "Wrong password" });
+        return res.status(401).json({ message: "Wrong password" });
       }
     } else {
-      res.status(401).json({ message: "Wrong email" });
+      return res.status(401).json({ message: "Wrong email" });
     }
   }
 }

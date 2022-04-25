@@ -1,13 +1,14 @@
 import { Button, Header } from "../components";
-import { useContext, useEffect, } from "react";
+import { useEffect, } from "react";
 import { useRouter } from "next/router";
-import { AuthContext } from "../context/Auth";
 import { getUserInfo, logout } from "../api/auth";
 import Head from "next/head";
+import { useAuth } from "../hooks";
+import clsx from "clsx";
 
 const Dashboard = () => {
   const router = useRouter();
-  const { userEmail, setUserEmail } = useContext(AuthContext);
+  const { userEmail, setUserEmail } = useAuth();
 
   const logoutHandler = async () => {
     const res = await logout();
@@ -21,7 +22,7 @@ const Dashboard = () => {
     }catch{
       await router.push("/login")
     }
-    return async () => {
+    return () => {
       setUserEmail("");
     }
   }
@@ -36,13 +37,14 @@ const Dashboard = () => {
         <title>Dashboard</title>
       </Head>
       <Header className={"mt-10"} />
-      <div className="px-5 text-center mt-10">
-        <h1 className="text-3xl font-medium lg:text-4xl xl:text-5xl">
+      <div className={clsx("px-5 mx-auto text-center", { "mt-20": !userEmail, "mt-10": userEmail })}>
+        <h1 className="text-3xl font-medium">
           Welcome!
         </h1>
         {userEmail && (
           <h2 className="text-lg lg:text-xl xl:text-2xl mt-3">
-            Your email is {userEmail}
+            Your email is <br/>
+            {userEmail}
           </h2>
         )}
         {userEmail && (

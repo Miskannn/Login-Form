@@ -1,12 +1,13 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 
-type AuthContextType = {
+export type AuthContextType = {
   userEmail: string;
   setUserEmail: Dispatch<SetStateAction<string>>;
 }
 
 
-export const AuthContext = React.createContext<AuthContextType>({userEmail: "", setUserEmail: () => console.warn("setUserEmail is not defined")});
+export const AuthContext = React.createContext<AuthContextType | null>(null);
+AuthContext.displayName = 'AuthContext';
 
 const AuthProvider: React.FC = ({ children }) => {
   const [userEmail, setUserEmail] = useState<string>("");

@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createNewPassword, findByEmail } from "../../lib/storage";
-import { setSession } from "../../utils";
+import { PasswordReminderService, StorageService } from "../../services";
 import { changeInfoSchema } from "../../schemas";
 
 export default async function handler(
@@ -11,18 +10,16 @@ export default async function handler(
   if (req.method === "PUT" && checkBodyValidity) {
     const { email } = req.body;
     try {
-      const candidate = await findByEmail(email);
+      const candidate = await StorageService.findByEmail(email);
       if (candidate) {
-        const password = await createNewPassword(candidate.email);
-        console.log(`User with email: ${candidate.email}, changed password to ${password}`)
-        await setSession(res, {
-          email: candidate.email,
-        });
-        res.status(200).json({ password: password });
+        const password = await PasswordReminderService.createNewPassword();
+        await StorageService.saveUser(candidate.email, password);
+        console.log(`User with email: ${candidate.email}, changed password to: ${password}`)
+        return res.status(200).json({});
       }
     } catch {
       //intentionally empty
     }
-    res.status(401).json({ message: "Not authorized" });
+    return res.status(401).json({ message: "Not authorized" });
   }
 }

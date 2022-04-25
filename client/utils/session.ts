@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiRequest } from "next";
 import Iron from "@hapi/iron";
 import { getTokenCookie, setTokenCookie } from "./cookies";
 import { Session } from "../types";
@@ -6,19 +6,19 @@ import { Session } from "../types";
 const TOKEN_SECRET =
   process.env.TOKEN_SECRET ||
   "minimum 32 symbols__________________________________________________________________";
-const COOKIES_MAX_AGE = process.env.COOKIES_MAX_AGE || 900000; //in milliseconds
+const COOKIES_MAX_AGE = Number(process.env.COOKIES_MAX_AGE) || 900000; //in milliseconds
 
 export const setSession = async (
-  res: NextApiResponse,
+  // res: NextApiResponse,
   userData: {email: string},
-): Promise<void> => {
+): Promise<string> => {
   const createdAt = Date.now();
   const obj = { userData, createdAt, maxAge: COOKIES_MAX_AGE };
   const token = await Iron.seal(obj, TOKEN_SECRET, Iron.defaults);
-  setTokenCookie(res, token);
+  return setTokenCookie(token);
 };
 
-export const getSession = async (req: NextApiRequest): Promise<Session | undefined> => {
+export const getSession = async (req: NextApiRequest): Promise<Session | void> => {
   const token = getTokenCookie(req);
 
   if (!token) return;
@@ -28,10 +28,10 @@ export const getSession = async (req: NextApiRequest): Promise<Session | undefin
     TOKEN_SECRET,
     Iron.defaults,
   );
-  const expiresAt = session.createdAt + session.maxAge * 1000;
 
+  const sessionExpired = (session.createdAt + session.maxAge) - Date.now() < 0;
 
-  if (Date.now() > expiresAt) {
+  if (sessionExpired) {
     throw new Error("Session is not valid");
   }
 

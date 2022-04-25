@@ -34,6 +34,8 @@ const NewUser = () => {
         const res = await registration(requestBody);
         if (res.status === 201) await router.push("/");
       } catch (error: unknown) {
+        setPassword("")
+        setConfirmPassword("")
         axios.isAxiosError(error)
           ? setErrorMessage((error?.response?.data as AxiosError)?.message)
           : setErrorMessage("Something went wrong")
@@ -53,7 +55,10 @@ const NewUser = () => {
         <Header />
         <MainContainer title={errorMessage ? errorMessage : "Registration"}>
           <FormLayout onSubmit={register}>
-            <EmailInput onChange={setEmail} value={email} />
+            <EmailInput
+              onChange={setEmail}
+              value={email}
+            />
             <PasswordInput
               onChange={setPassword}
               value={password}
@@ -61,16 +66,16 @@ const NewUser = () => {
             <PasswordInput
               onChange={setConfirmPassword}
               value={confirmPassword}
-              className={"row-start-3"}
+              className="row-start-3"
               placeholder="Confirm password"
             />
-            <CustomLink href={'login'} name={"Login"}>
-              <ArrowLeftIcon className={"w-4 h-4 inline-block mr-2 mb-1"} />
+            <CustomLink href='login' name="Login">
+              <ArrowLeftIcon className="w-4 h-4 inline-block mr-2 mb-1" />
             </CustomLink>
             <Button isError={!!errorMessage}>Registration</Button>
           </FormLayout>
         </MainContainer>
-        <Footer href={'login'} name={"Sign in"}/>
+        <Footer href='login' name="Sign in"/>
       </Layout>
     </>
   );

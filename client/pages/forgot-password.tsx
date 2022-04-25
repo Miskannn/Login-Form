@@ -8,7 +8,7 @@ import { ArrowLeftIcon } from "@heroicons/react/outline";
 
 const ForgotPassword = () => {
   const [forgotPasswordEmail, setForgotPasswordEmail] = useState<string>("");
-  const [newPassword, setNewPassword] = useState<string | null>(null);
+  const [newPassword, setNewPassword] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const refreshPassword = async (e: MouseEvent | React.FormEvent) => {
@@ -17,12 +17,15 @@ const ForgotPassword = () => {
       const res: AxiosResponse = await forgotPassword({
         email: forgotPasswordEmail,
       });
-      setNewPassword(res.data.password);
-      setErrorMessage(null);
+      if(res.status === 200){
+        setNewPassword(true);
+        setErrorMessage(null);
+      }
     } catch (error: unknown) {
       axios.isAxiosError(error)
         ? setErrorMessage((error?.response?.data as AxiosError)?.message)
-        : setErrorMessage("Something went wrong")
+        : setErrorMessage("Something went wrong");
+      setNewPassword(false);
       console.error(error);
     }
   };
@@ -32,26 +35,27 @@ const ForgotPassword = () => {
       <Head>
         <title>Forgot password</title>
       </Head>
-      <Layout className={"mt-20"}>
+      <Layout className="mt-4 lg:mt-7">
         <Header />
-        <Main title={"Password recovery"}>
-          {newPassword && (
-            <h2 className="tracking-tight lg:tracking-normal font-semibold mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-3xl">
-              Your password is {newPassword}
-            </h2>
-          )}
-          {errorMessage && !newPassword && (
-            <h2 className="tracking-tight lg:tracking-normal font-semibold mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-3xl">
-              {errorMessage}
-            </h2>
-          )}
-          <FormLayout onSubmit={refreshPassword} className={"mt-10"}>
+        <Main className="mt-4 lg:mt-20" title="Password recovery">
+            {newPassword && (
+              <h2 className="tracking-tight lg:tracking-normal mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-md">
+                Password successfully changed,<br/>
+                see it in server logs
+              </h2>
+            )}
+            {errorMessage && !newPassword && (
+              <h2 className="tracking-tight lg:tracking-normal mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-md">
+                {errorMessage}
+              </h2>
+            )}
+          <FormLayout onSubmit={refreshPassword} className="mt-5">
             <EmailInput
               onChange={setForgotPasswordEmail}
               value={forgotPasswordEmail}
             />
-            <CustomLink href={"login"} name={"Log in"}>
-              <ArrowLeftIcon className={"w-4 h-4 inline-block mr-2 mb-1"} />
+            <CustomLink href="login" name="Log in">
+              <ArrowLeftIcon className="w-4 h-4 inline-block mr-2 mb-1" />
             </CustomLink>
             <Button isError={!!errorMessage}>
               Get password

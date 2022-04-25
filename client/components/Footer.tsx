@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({
   href = "new-user",
 }) => {
   return (
-    <footer className="flex-[0_0_auto] w-full bottom-0 fixed lg:sticky bg-gray-300 lg:bg-transparent lg:w-80 lg:mx-auto lg:mt-10 xl:w-96 2xl:w-[29.5rem]">
+    <footer className="flex-[0_0_auto] w-full  bg-gray-300 lg:bg-transparent lg:w-80 lg:mx-auto xl:w-96 2xl:w-[29.5rem]">
       <div className="flex justify-between pt-5 pb-6 sm:py-4 bg-gray-10 w-full">
         <a className="ml-6 pt-1" href="#">
           <GlobeAltIcon className="h-6 w-6 text-gray-50" />

@@ -4,19 +4,19 @@ import { NextApiRequest, NextApiResponse } from "next";
 const tokenName = process.env.TOKEN_NAME || "token";
 const env = process.env.NODE_ENV || "production";
 
-export const setTokenCookie = (res: NextApiResponse, token: string): void => {
-  const cookie = serialize(tokenName, token, {
+export const setTokenCookie = (token: string) => {
+  return serialize(tokenName, token, {
     maxAge: Number(process.env.COOKIES_MAX_AGE) || 900000,
     httpOnly: env !== "development",
     secure: true,
     path: "/",
-  });
-
-  res.setHeader("Set-Cookie", cookie);
+  })
 };
 
-export const deleteTokenCookie = (res: NextApiResponse): void => {
+export const deleteTokenCookie = (res: NextApiResponse) => {
   const cookie = serialize(tokenName, "", {
+    httpOnly: env !== "development",
+    secure: true,
     maxAge: -1,
     path: "/",
   });

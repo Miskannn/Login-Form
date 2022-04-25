@@ -19,7 +19,7 @@ export const CustomLink: React.FC<CustomLinkProps> = ({
   }) => {
   return (
     <Link href={`/${href}`}>
-      <a className={clsx("opacity-60 hover:opacity-100 col-span-2 text-gray-500 pl-1 pr-1", className)}>
+      <a className={clsx("opacity-60 hover:opacity-100 col-span-2 text-gray-500 px-1", className)}>
        <>
         {children}
         {name}

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { createUser, findByEmail } from "../../lib/storage";
+import { StorageService } from "../../services";
 import { setSession } from "../../utils";
 import { authSchema } from "../../schemas";
 
@@ -10,14 +10,14 @@ export default async function handler(
   const checkBodyValidity = await authSchema.isValid(req.body)
   if(req.method === "POST" && checkBodyValidity){
     const { email, password } = req.body;
-    const candidate = await findByEmail(email);
+    const candidate = await StorageService.findByEmail(email);
     if (candidate) {
-      res.status(409).json({ message: "User already exists" });
+      return res.status(409).json({ message: "User already exists" });
     }
-    const newUser = await createUser(email, password);
-    await setSession(res, {
+    const newUser = await StorageService.saveUser(email, password);
+    const cookie = await setSession({
       email: newUser.email,
     });
-    return res.status(201).json({});
+    return res.setHeader("Set-Cookie", cookie).status(201).json({});
   }
 }
