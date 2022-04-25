@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Bug fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/CustomLink.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/CustomLink.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/context/Auth.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/context/Auth.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lib/storage/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/auth/user-info.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/auth/user-info.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/forgot-password.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/forgot-password.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/login.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/api/registration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/api/registration.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/forgot-password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/forgot-password.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pages/new-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/new-user.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/utils/cookies.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/cookies.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/utils/session.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/utils/session.ts" afterDir="false" />
-    </list>
+    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Bug fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -225,7 +207,7 @@
       <workItem from="1650883432229" duration="6996000" />
       <workItem from="1650893761356" duration="8021000" />
       <workItem from="1650914402830" duration="2522000" />
-      <workItem from="1650917114694" duration="2301000" />
+      <workItem from="1650917114694" duration="3208000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>

@@ -12,8 +12,6 @@ global[store] = global[store] || new Map<string, string>();
 
 
 export class StorageService{
-  private store: Store = new Map();
-
   static async saveUser (
     email: string,
     password: string,
