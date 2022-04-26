@@ -35,9 +35,9 @@ const ForgotPassword = () => {
       <Head>
         <title>Forgot password</title>
       </Head>
-      <Layout className="mt-4 lg:mt-7">
+      <Layout className="mt-4 lg:mt-1.6rem">
         <Header />
-        <Main className="mt-4 lg:mt-20" title="Password recovery">
+        <Main className="mt-4 lg:mt-5" title="Password recovery">
             {newPassword && (
               <h2 className="tracking-tight lg:tracking-normal mb-3 sm:mb-5 ml-7 lg:mb-10 lg:font-bold lg:text-md">
                 Password successfully changed,<br/>
@@ -54,7 +54,7 @@ const ForgotPassword = () => {
               onChange={setForgotPasswordEmail}
               value={forgotPasswordEmail}
             />
-            <CustomLink href="login" name="Log in">
+            <CustomLink href="login" name="Return to SignIn">
               <ArrowLeftIcon className="w-4 h-4 inline-block mr-2 mb-1" />
             </CustomLink>
             <Button isError={!!errorMessage}>
@@ -63,7 +63,7 @@ const ForgotPassword = () => {
           </FormLayout>
         </Main>
       </Layout>
-      <Footer />
+      <Footer  />
     </>
   );
 };

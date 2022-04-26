@@ -69,14 +69,14 @@ const NewUser = () => {
               className="row-start-3"
               placeholder="Confirm password"
             />
-            <CustomLink href='login' name="Login">
+            <CustomLink href='login' name="Return to SignIn">
               <ArrowLeftIcon className="w-4 h-4 inline-block mr-2 mb-1" />
             </CustomLink>
             <Button isError={!!errorMessage}>Registration</Button>
           </FormLayout>
         </MainContainer>
-        <Footer href='login' name="Sign in"/>
       </Layout>
+      <Footer className="" href='login' name="Sign in"/>
     </>
   );
 };

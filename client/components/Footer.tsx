@@ -1,18 +1,21 @@
 import React from "react";
 import { GlobeAltIcon, LogoutIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import clsx from "clsx";
 
 interface FooterProps {
   name?: string;
   href?: string;
+  className?: string;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   name = "New user",
   href = "new-user",
+  className = ""
 }) => {
   return (
-    <footer className="flex-[0_0_auto] w-full  bg-gray-300 lg:bg-transparent lg:w-80 lg:mx-auto xl:w-96 2xl:w-[29.5rem]">
+    <footer className={clsx("flex-[0_0_auto] w-full lg:mb-0 bg-gray-300 lg:bg-transparent lg:w-80 lg:mx-auto xl:w-96 2xl:w-[29.5rem]", className)}>
       <div className="flex justify-between pt-5 pb-6 sm:py-4 bg-gray-10 w-full">
         <a className="ml-6 pt-1" href="#">
           <GlobeAltIcon className="h-6 w-6 text-gray-50" />

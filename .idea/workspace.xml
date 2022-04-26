@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Bug fix" />
+    <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Bug fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/forgot-password.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/forgot-password.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/new-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/new-user.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/tailwind.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +40,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="273fY1MJAQwHJapBpl5RZZROVwE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -50,7 +57,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.14.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.27" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../typechallenges" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -207,7 +214,8 @@
       <workItem from="1650883432229" duration="6996000" />
       <workItem from="1650893761356" duration="8021000" />
       <workItem from="1650914402830" duration="2522000" />
-      <workItem from="1650917114694" duration="3208000" />
+      <workItem from="1650917114694" duration="4499000" />
+      <workItem from="1650967164638" duration="6385000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>
