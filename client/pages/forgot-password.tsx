@@ -35,7 +35,7 @@ const ForgotPassword = () => {
       <Head>
         <title>Forgot password</title>
       </Head>
-      <Layout className="mt-4 lg:mt-1.6rem">
+      <Layout className="mt-4 lg:mt-[1.6rem]">
         <Header />
         <Main className="mt-4 lg:mt-5" title="Password recovery">
             {newPassword && (

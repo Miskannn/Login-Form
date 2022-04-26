@@ -48,7 +48,7 @@ const LoginPage = () => {
       </Head>
       <Layout>
         <Header />
-        <MainContainer className="mt-2px" title={title}>
+        <MainContainer className="lg:mt-[2px]" title={title}>
           <FormLayout onSubmit={signIn}>
             <EmailInput onChange={setEmail} value={email} />
             <PasswordInput
