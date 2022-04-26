@@ -1,12 +1,14 @@
 import React from "react";
 import { CheckIcon, UserIcon, XIcon } from "@heroicons/react/outline";
+import clsx from "clsx";
 
 interface EmailInputProps {
   onChange?: (e: string) => void;
   value?: string;
+  className?: string;
 }
 
-export const EmailInput: React.FC<EmailInputProps> = ({ onChange, value }) => {
+export const EmailInput: React.FC<EmailInputProps> = ({ onChange, value,className }) => {
   return (
     <>
       <input
@@ -14,15 +16,8 @@ export const EmailInput: React.FC<EmailInputProps> = ({ onChange, value }) => {
         name="email"
         required
         placeholder="Email address"
-        className="peer row-start-1 col-span-full px-8 py-4
-            outline-none border-b-2 border-gray-200
-            invalid:border-danger-66 valid:border-success-77
-            placeholder-shown:invalid:border-gray-300
-            placeholder-shown:valid:border-gray-300
-            placeholder-shown:focus:border-gray-800
-            focus:text-gray-800
-            focus:placeholder:text-gray-800
-            focus:font-medium"
+        className={clsx("peer row-start-1 col-span-full px-8 py-4 outline-none border-b-2 border-gray-200 invalid:border-danger-66 valid:border-success-77 placeholder-shown:invalid:border-gray-300 placeholder-shown:valid:border-gray-300 placeholder-shown:focus:border-gray-800 focus:text-gray-800 focus:placeholder:text-gray-800 focus:font-medium",
+          className)}
         onChange={(e) => onChange?.(e.target?.value)}
         value={value}
       />
