@@ -76,7 +76,7 @@ const NewUser = () => {
           </FormLayout>
         </MainContainer>
       </Layout>
-      <Footer className="" href='login' name="Sign in"/>
+      <Footer href='login' name="Sign in"/>
     </>
   );
 };
