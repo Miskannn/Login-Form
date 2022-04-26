@@ -42,7 +42,7 @@ const Dashboard = () => {
           Welcome!
         </h1>
         {userEmail && (
-          <h2 className="text-lg lg:text-xl xl:text-2xl mt-3">
+          <h2 className="text-lg lg:text-xl xl:text-xl  mt-3">
             Your email is <br/>
             {userEmail}
           </h2>
