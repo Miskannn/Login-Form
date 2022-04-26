@@ -36,13 +36,13 @@ const Dashboard = () => {
       <Head>
         <title>Dashboard</title>
       </Head>
-      <Header className={"mt-10"} />
-      <div className={clsx("px-5 mx-auto text-center", { "mt-20": !userEmail, "mt-10": userEmail })}>
+      <Header className="mt-10" />
+      <div className={clsx("px-5 lg:w-[390px] mx-auto text-center", { "mt-20": !userEmail, "mt-10": userEmail })}>
         <h1 className="text-3xl font-medium">
           Welcome!
         </h1>
         {userEmail && (
-          <h2 className="text-lg lg:text-xl xl:text-2xl mt-3">
+          <h2 className="text-lg lg:text-2xl xl:text-2xl mt-3">
             Your email is <br/>
             {userEmail}
           </h2>
