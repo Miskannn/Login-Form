@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f527a4d-50a9-4326-bd82-1b6fa6ea6332" name="Changes" comment="Bug fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pages/new-user.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/pages/new-user.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +211,7 @@
       <workItem from="1650893761356" duration="8021000" />
       <workItem from="1650914402830" duration="2522000" />
       <workItem from="1650917114694" duration="4499000" />
-      <workItem from="1650967164638" duration="8410000" />
+      <workItem from="1650967164638" duration="8844000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1648661810761</created>
